@@ -1,0 +1,82 @@
+/*
+   Spendenseite
+ */
+
+// Variables ------------------------------------
+
+// Colors: http://www.colorhexa.com/e22129
+$red: #e22129;
+$black: #333;
+$turquoise: #21e2da;
+
+$space: 2rem;
+$markerSize: 2rem;
+
+%bold {
+   font-family: 'pt_monobold', sans-serif;
+   font-weight: 500;
+}
+
+// Imports --------------------------------------
+
+@import "marker";
+@import "item";
+@import "more";
+
+
+// Styles ---------------------------------------
+
+.lead {
+   @extend %bold;
+   font-size: 18px;
+}
+
+.highlight {
+   @extend .lead;
+   font-size: 24px;
+   color: $red;
+}
+
+.hidden { display: none; }
+
+.center {
+   text-align: center;
+
+   & > * {
+      display: inline-block;
+      margin-top: $space;
+   }
+}
+
+.brick {
+   width: 25%;
+   padding: $space / 2;
+   border: 1px dotted $black;
+}
+
+// Site Styles ----------------------------------
+
+.lkw {
+   position: relative;
+}
+
+.result {
+   position: relative;
+
+   &:hover .more {
+      display: block;
+   }
+}
+
+.questions {
+   display: flex;
+   justify-content: center;
+
+   & > :not(:last-child) {
+      margin-right: $space;
+   }
+
+   a {
+      @extend .highlight;
+   }
+}

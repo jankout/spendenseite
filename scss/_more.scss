@@ -1,0 +1,34 @@
+$moreWidth: 20rem;
+$distanceTop: 1rem;
+$bgColor: rgba($red, .9);
+$textColor: white;
+
+.more {
+   position: absolute;
+   display: none;
+   left: 0;
+   width: $moreWidth;
+   padding-top: $markerSize + $distanceTop;
+
+   .content {
+      padding: $space;
+      background: $bgColor;
+      cursor: auto;
+      color: $textColor;
+
+      // Arrow
+      &:after {
+         content: " ";
+         position: absolute;
+         top: 0;
+         left: 50%;
+         height: 0;
+         width: 0;
+         transform: translateY($distanceTop);
+         border: solid transparent;
+         border-bottom-color: $bgColor;
+         border-width: $markerSize / 2;
+         margin-left: -$markerSize / 2;
+      }
+   }
+}

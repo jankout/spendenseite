@@ -1,0 +1,69 @@
+// Variables ------------------------------------
+
+$size: $markerSize;
+$duration: 3s;
+
+// Pulse Animation ------------------------------
+
+@keyframes pulse {
+   0% {
+      transform: scale(.5);
+      opacity: .6;
+   }
+   50% {
+      opacity: 0;
+      transform: scale(2);
+   }
+}
+
+
+// Styles ---------------------------------------
+
+.pin {
+   position: absolute;
+   width: $size;
+   height: $size;
+   cursor: pointer;
+   transform: translate(-50%, -50%);
+
+   &:hover .more { display: block; }
+
+   .circle,
+   .glow {
+      position: absolute;
+      border-radius: 50%;
+   }
+
+   .circle {
+      top: $size / 4;
+      left: $size / 4;
+      width: $size / 2;
+      height: $size / 2;
+      background-color: $red;
+   }
+
+   .glow {
+      top: 0;
+      left: 0;
+      width: $size;
+      height: $size;
+      border: ($size / 2) solid $red;
+      box-shadow: 0 0 ($size / 10) $red;
+      opacity: 0;
+      animation: pulse $duration infinite ease-out;
+   }
+
+   &.active {
+      .circle {
+         background-color: $turquoise;
+      }
+      .glow {
+         display: none;
+      }
+   }
+
+   .more {
+      left: $size / 2;
+      transform: translateX(-50%);
+   }
+}

@@ -1,0 +1,28 @@
+$bgColor: white;
+$textColor: $red;
+
+.item {
+   position: relative;
+   display: block;
+   width: 100%;
+   margin-top: $space / 2;
+   padding: $space / 2;
+   background-color: $bgColor;
+   color: $textColor;
+   border: none;
+   text-align: left;
+
+   &:hover {
+      @extend %bold;
+   }
+
+   &:before {
+      content: "+";
+      padding-right: $space / 2;
+   }
+
+   &:after {
+      content: attr(data-price) " €";
+      float: right;
+   }
+}
