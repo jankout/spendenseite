@@ -66,6 +66,8 @@
 
 // Site Styles ----------------------------------
 
+#main .inside { overflow: visible; } // gegen das main stylesheet
+
 .lkw {
    position: relative;
    z-index: 10;
