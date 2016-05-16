@@ -2,23 +2,11 @@
    Spendenseite
  */
 
-// Variables ------------------------------------
 
-// Colors: http://www.colorhexa.com/e22129
-$red: #e22129;
-$black: #333;
-$turquoise: #21e2da;
-
-$space: 2rem;
-$markerSize: 2rem;
-
-%bold {
-   font-family: 'pt_monobold', sans-serif;
-   font-weight: 500;
-}
 
 // Imports --------------------------------------
 
+@import "variables";
 @import "marker";
 @import "item";
 @import "more";
@@ -26,25 +14,42 @@ $markerSize: 2rem;
 
 // Styles ---------------------------------------
 
-.lead {
-   @extend %bold;
-   font-size: 18px;
+.lead { font-size: 18px; }
+
+.bold { @extend %bold; }
+
+.strike {
+   position: relative;
+   display: inline-block;
+
+   &:after {
+      content: '';
+      position: absolute;
+      top: calc(50% - 1px);
+      left: -3px;
+      right: -3px;
+      border-bottom: 2px solid #e22129;
+      transform: rotate(-9deg);
+   }
 }
 
 .highlight {
-   @extend .lead;
+   @extend .bold;
    font-size: 24px;
    color: $red;
 }
 
 .hidden { display: none; }
 
+.pull-right { float: right; }
+.pull-left { float: left; }
+
 .center {
    text-align: center;
 
    & > * {
       display: inline-block;
-      margin-top: $space;
+      margin-bottom: $space;
    }
 }
 
@@ -58,14 +63,48 @@ $markerSize: 2rem;
 
 .lkw {
    position: relative;
+   z-index: 10;
+}
+
+#svg-lkw {
+   width: 100%;
 }
 
 .result {
    position: relative;
+   display: flex;
+   align-items: center;
+   margin-left: auto;
+   margin-right: auto;
+   padding: 0 1rem;
+   will-change: transition;
 
-   &:hover .more {
+   .more {
+      transform: translateX(-50%);
+      top: 3rem;
+      left: 50%;
+   }
+
+   &:hover .more,
+   // & .more,
+   &.active .more {
       display: block;
    }
+
+   .amount,
+   .amount:focus {
+      margin: 0;
+      padding: 1rem 0;
+      border: 0;
+      background-color: transparent;
+      box-shadow: none;
+      text-align: right;
+   }
+}
+
+[data-price]:after {
+   content: attr(data-price) " €";
+   float: right;
 }
 
 .questions {

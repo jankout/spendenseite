@@ -3,7 +3,8 @@
 $size: $markerSize;
 $duration: 3s;
 
-// Pulse Animation ------------------------------
+
+// Animations -----------------------------------
 
 @keyframes pulse {
    0% {
@@ -16,6 +17,11 @@ $duration: 3s;
    }
 }
 
+@keyframes fadeIn {
+     0% { opacity: 0; }
+   100% { opacity: 1; }
+}
+
 
 // Styles ---------------------------------------
 
@@ -25,7 +31,10 @@ $duration: 3s;
    height: $size;
    cursor: pointer;
    transform: translate(-50%, -50%);
+   animation: fadeIn .5s ease;
+   z-index: 10;
 
+   &:hover { z-index: 11; }
    &:hover .more { display: block; }
 
    .circle,

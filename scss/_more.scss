@@ -1,14 +1,17 @@
 $moreWidth: 20rem;
-$distanceTop: 1rem;
+$distanceTop: 0;
 $bgColor: rgba($red, .9);
 $textColor: white;
 
 .more {
    position: absolute;
    display: none;
+   top: 1rem;
    left: 0;
    width: $moreWidth;
    padding-top: $markerSize + $distanceTop;
+
+   &:empty { display: none; }
 
    .content {
       padding: $space;
@@ -31,4 +34,17 @@ $textColor: white;
          margin-left: -$markerSize / 2;
       }
    }
+
+   &.glimpse {
+      display: block;
+      opacity: 0;
+      animation: glimpse 5.5s .5s linear;
+   }
+}
+
+@keyframes glimpse {
+     0% { opacity: 0; }
+    18% { opacity: 1; }
+    82% { opacity: 1; }
+   100% { opacity: 0; }
 }

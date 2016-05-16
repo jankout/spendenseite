@@ -20,9 +20,5 @@ $textColor: $red;
       content: "+";
       padding-right: $space / 2;
    }
-
-   &:after {
-      content: attr(data-price) " €";
-      float: right;
-   }
 }
+

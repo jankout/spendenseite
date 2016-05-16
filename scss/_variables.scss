@@ -1,0 +1,31 @@
+// Variables ------------------------------------
+
+// Colors: http://www.colorhexa.com/e22129
+$red: #e22129;
+$black: #333;
+$turquoise: #21e2da;
+
+$space: 2rem;
+$markerSize: 2rem;
+
+
+// Partials -------------------------------------
+
+%bold {
+   font-family: 'pt_monobold', sans-serif;
+   font-weight: 500;
+}
+
+
+// Animations -----------------------------------
+
+.grow {
+   animation: grow .3s ease;
+}
+
+@keyframes grow {
+   50% {
+      box-shadow: 0 0 2rem $red;
+      transform: scale(1.3);
+   }
+}

@@ -14,8 +14,13 @@
    <link rel="stylesheet" href="http://www.cadus.org/system/modules/i18nl10n/assets/css/i18nl10n_lang_iso.css">
    <link rel="stylesheet" href="http://www.cadus.org/assets/css/3b4c86e85e2b.css">
    <link rel="stylesheet" href="assets/css/style.css">
+
    <script src="http://www.cadus.org/assets/js/b6da976ed3d1.js"></script>
+
+   <script src="assets/js/vivus.min.js"></script>
+   <script src="assets/js/config.js"></script>
    <script src="assets/js/script.js"></script>
+
    <link rel="alternate" href="http://www.cadus.org/de/" hreflang="de" title="Newsletter" />
    <!--[if lt IE 9]><script src="assets/html5shiv/3.7.2/html5shiv-printshiv.min.js"></script><![endif]-->
 </head>
@@ -89,41 +94,24 @@
                      <p class="lead">Pudio. Nequae aut eaquist od untis elendis trumque venecabor solupta porpore ratio. Pudae consectati ulparch illiqui te nos et et aut ipicipis erferi bea conseque qui non endae consequi blam incimus qui dolum facieni mporerchitae porrore hendebis utecerit.</p>
 
                      <div class="lkw">
-                        <object id="svg-lkw" type="image/svg+xml" data="assets/img/lkw-small.svg"></object>
+                        <object id="svg-lkw" type="image/svg+xml" data="assets/img/lkw-small.svg" style="opacity: 0;"></object>
                         <!-- TODO: Inline -->
                         <div class="marker"></div>
                      </div>
 
-                     <!-- TODO: Gut? -->
-                     <!-- <script src="https://cdn.jsdelivr.net/vivus/latest/vivus.min.js"></script>
-                     <script>
-                     function callback() {}
-
-                     new Vivus(
-                        'svg-lkw',
-                        {
-                           duration: 200,
-                           selfDestroy: true,
-                        },
-                        callback
-                     );
-                     </script> -->
-
                      <div class="center">
-                        <div class="result brick hidden">
-                           <div class="more">
-                              <div class="items content"></div>
-                           </div>
-                           <span class="amount highlight"></span>
+                        <div class="result brick">
+                           <div class="more"></div>
+                           <input class="amount highlight" type="number" step="5" min="0" max="1000000" value="0"><span class="highlight">€</span>
                         </div>
 
                         <div class="questions">
-                           <div class="brick"><a href="#">warum</a></div>
-                           <div class="brick"><a href="#">was</a></div>
-                           <div class="brick"><a href="#">wie</a></div>
+                           <div class="brick"><a href="http://www.cadus.org/en/blog">warum</a></div>
+                           <div class="brick"><a href="http://www.cadus.org/en/blog">was</a></div>
+                           <div class="brick"><a href="http://www.cadus.org/en/blog">wie</a></div>
                         </div>
 
-                        <div class="hinweis brick lead">
+                        <div class="hinweis brick bold">
                            direkt spenden:<br>
                            <a href="https://www.betterplace.org/" title="betterplace.org">betterplace.org</a>
                         </div>

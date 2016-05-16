@@ -1,12 +1,12 @@
 # Generate
 
 ```sh
+   # JavaScript
+   babel js --out-dir assets/js --watch --presets es2015 --source-maps
+
    # Sass
-   sass scss/style.scss:assets/css/style.css
+   sass --watch scss:assets/css
 
    # Prefixes
-   postcss --use autoprefixer style.css -d .
-
-   # JavaScript
-   babel js/script.es6.js --presets es2015 --out-file assets/js/script.js
+   cd assets/css; postcss --use autoprefixer style.css -d .
 ```
