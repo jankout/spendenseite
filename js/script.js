@@ -24,21 +24,25 @@ class App {
       this.$marker = this.$('.marker');
       this.$result = this.$('.result');
       this.$amount = this.$('.result .amount');
-      this.$resultInfo = this.$('.result .more');
-
-      this.runSVGAnimation('svg-lkw', this.initialize.bind(this));
-   }
-
-   initialize() {
-      const htmlItems = this.marker.map(markerTemplate);
-      this.$marker.html(htmlItems[0]);
-
-      const firstPin = this.$('.pin .more').first();
-      const callback = () => this.$marker.html(htmlItems.join(''));
-      this.animate(firstPin, 'glimpse', callback);
+      this.$resultMore = this.$('.result .more');
+      this.$items = this.$('.result .items');
+      this.$donateButton = this.$('.donate-button');
 
       this.$amount.on('keyup', this.handleAmountChange.bind(this));
       this.$marker.on('click', 'button', this.handleItemAddition.bind(this));
+
+      this.startIntro();
+   }
+
+   startIntro() {
+      this.runSVGAnimation('svg-lkw', () => {
+         const htmlItems = this.marker.map(markerTemplate);
+         this.$marker.html(htmlItems[0]);
+
+         const firstPin = this.$('.pin .more').first();
+         const callback = () => this.$marker.html(htmlItems.join(''));
+         this.animate(firstPin, 'glimpse', callback);
+      });
    }
 
    render() {
@@ -66,10 +70,13 @@ class App {
 
    renderItems() {
       let items = [...this.items];
+      let hasItems = !(this.amount > 0 || items.length);
       let targetValue = this.calculateAmount();
       let actualValue = this.$amount.val();
-      let listTemplate = (content) => `<div class="items content">${content}</div>`;
       let itemTemplate = (item) => `<div class="item" data-price="${item.price}">${item.name}</div>`;
+
+      this.$resultMore.toggleClass('hidden', hasItems);
+      this.$donateButton.attr('disabled', hasItems);
 
       if (items.length && actualValue < targetValue) {
          let partlyOff = (item) => `<div class="item">${item.name}
@@ -79,7 +86,7 @@ class App {
                                       </div>`;
          let fullyOff = (item) => `<div class="item strike"><span data-price="${item.price}">${item.name}</span></div>`;
 
-         let itemHTML = items.map((item) => {
+         let html = items.map((item) => {
             let difference = targetValue - actualValue;
 
             if (!difference) {
@@ -95,7 +102,7 @@ class App {
             targetValue -= item.price;
             return fullyOff(item); // fully off
          }).join('');
-         this.$resultInfo.html(listTemplate(itemHTML));
+         this.$items.html(html);
          return;
       }
 
@@ -107,8 +114,8 @@ class App {
       }
 
       let itemsHtml = items.map(itemTemplate).join('');
-      let html = items.length ? listTemplate(itemsHtml) : '';
-      this.$resultInfo.html(html);
+      let html = items.length ? itemsHtml : '';
+      this.$items.html(html);
    }
 
    calculateAmount() {

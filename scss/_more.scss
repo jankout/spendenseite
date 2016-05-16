@@ -1,7 +1,7 @@
 $moreWidth: 20rem;
 $distanceTop: 0;
 $bgColor: rgba($red, .9);
-$textColor: white;
+$textColor: $white;
 
 .more {
    position: absolute;
@@ -10,8 +10,6 @@ $textColor: white;
    left: 0;
    width: $moreWidth;
    padding-top: $markerSize + $distanceTop;
-
-   &:empty { display: none; }
 
    .content {
       padding: $space;

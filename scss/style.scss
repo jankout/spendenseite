@@ -3,7 +3,6 @@
  */
 
 
-
 // Imports --------------------------------------
 
 @import "variables";
@@ -21,6 +20,7 @@
 .strike {
    position: relative;
    display: inline-block;
+   opacity: 0.7;
 
    &:after {
       content: '';
@@ -37,6 +37,11 @@
    @extend .bold;
    font-size: 24px;
    color: $red;
+}
+
+.invert.invert { // specificity fight
+   color: $white;
+   background-color: $red;
 }
 
 .hidden { display: none; }
@@ -70,26 +75,22 @@
    width: 100%;
 }
 
+.row {
+   display: flex;
+   justify-content: center;
+
+   & > :not(:first-child) {
+      margin-left: $space;
+   }
+}
+
 .result {
    position: relative;
    display: flex;
    align-items: center;
-   margin-left: auto;
-   margin-right: auto;
    padding: 0 1rem;
    will-change: transition;
-
-   .more {
-      transform: translateX(-50%);
-      top: 3rem;
-      left: 50%;
-   }
-
-   &:hover .more,
-   // & .more,
-   &.active .more {
-      display: block;
-   }
+   border: 2px solid $red;
 
    .amount,
    .amount:focus {
@@ -100,6 +101,18 @@
       box-shadow: none;
       text-align: right;
    }
+
+   .amount:focus ~ .more,
+   &:hover .more,
+   &.active .more {
+      display: block;
+   }
+
+   .more {
+      transform: translateX(-50%);
+      top: 3rem;
+      left: 50%;
+   }
 }
 
 [data-price]:after {
@@ -107,15 +120,12 @@
    float: right;
 }
 
-.questions {
-   display: flex;
-   justify-content: center;
+.donate-button {
+   transition: 1s all;
 
-   & > :not(:last-child) {
-      margin-right: $space;
-   }
-
-   a {
-      @extend .highlight;
+   &[disabled] {
+      opacity: 0.3;
+      color: $red;
+      background-color: $white;
    }
 }
