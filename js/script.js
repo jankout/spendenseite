@@ -37,11 +37,9 @@ class App {
    startIntro() {
       this.runSVGAnimation('svg-lkw', () => {
          const htmlItems = this.marker.map(markerTemplate);
-         this.$marker.html(htmlItems[0]);
-
+         this.$marker.html(htmlItems.join(''));
          const firstPin = this.$('.pin .more').first();
-         const callback = () => this.$marker.html(htmlItems.join(''));
-         this.animate(firstPin, 'glimpse', callback);
+         this.animate(firstPin, 'glimpse');
       });
    }
 
