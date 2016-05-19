@@ -62,6 +62,8 @@
    width: 25%;
    padding: $space / 2;
    border: 1px dotted $black;
+
+   &.slim { padding: 0 1rem; }
 }
 
 // Site Styles ----------------------------------
@@ -97,7 +99,7 @@
    .amount,
    .amount:focus {
       margin: 0;
-      padding: 1rem 0;
+      padding: 0;
       border: 0;
       background-color: transparent;
       box-shadow: none;
