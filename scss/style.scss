@@ -39,8 +39,6 @@
    }
 }
 
-
-
 .invert.invert { // specificity fight
    border: 0;
    background-color: $red;
@@ -66,7 +64,7 @@
    padding: $space / 2;
    border: 1px dotted $black;
 
-   &.full { width: calc(75% + 4rem); }
+   &.full { width: 100%; }
    &.slim { padding: 0 1rem; }
 }
 
@@ -146,13 +144,22 @@ h1 { font-size: 28px; }
    }
 }
 
-.info-buttons a { color: $black; }
+.info-buttons {
+   display: flex;
+
+   .brick { flex: 1; }
+   a { color: $black; }
+}
 
 .info-block {
    position: relative;
 
+   &[data-arrow-position="1"]:before { left: calc(16.5% - .5rem); }
+   &[data-arrow-position="2"]:before { left: 50%; }
+   &[data-arrow-position="3"]:before { left: calc(83.5% + .5rem); }
+
    // Arrow
-   &:after {
+   &:before {
       content: " ";
       position: absolute;
       top: -2rem;
