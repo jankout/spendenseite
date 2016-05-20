@@ -5,7 +5,7 @@ const markerTemplate = (data) => `
       <div class="circle"></div>
       <div class="glow"></div>
       <div class="more">
-         <div class="content">
+         <div class="content" data-earmark="${data.earmark}">
             ${data.content}
          </div>
       </div>
@@ -27,26 +27,36 @@ class App {
       this.$resultMore = this.$('.result .more');
       this.$items = this.$('.result .items');
       this.$donateButton = this.$('.donation-button');
+      this.$earmark = this.$('.donation-earmark');
+      this.$form = this.$('.donation-form');
 
       this.$amount.on('keyup change', this.handleAmountChange.bind(this));
       this.$marker.on('click', '.item', this.handleAddition.bind(this));
       this.$items.on('click', '.item', this.handleRemoval.bind(this));
+      this.$form.on('submit', this.beforeSubmit.bind(this));
 
       this.startIntro();
    }
 
    startIntro() {
-      this.runSVGAnimation('svg-lkw', () => {
+      // this.runSVGAnimation('svg-lkw', () => {
          const htmlItems = this.marker.map(markerTemplate);
          this.$marker.html(htmlItems.join(''));
          const firstPin = this.$('.pin .more').first();
-         this.animate(firstPin, 'glimpse');
-      });
+         // this.animate(firstPin, 'glimpse');
+      // });
    }
 
    render() {
       this.$amount.val(this.amount);
       this.renderItems();
+   }
+
+   beforeSubmit(event) {
+      const counts = {};
+      this.items.forEach((item) => { counts[item.earmark] = (counts[item.earmark] || 0) + item.price; });
+      const earmark = Object.keys(counts).sort((a, b) => counts[b] - counts[a])[0];
+      this.$earmark.val(earmark || '');
    }
 
    handleAmountChange() {
@@ -57,7 +67,8 @@ class App {
    handleAddition({ currentTarget = {} }) {
       const name = currentTarget.innerText;
       const price = +currentTarget.dataset.price;
-      this.addProduct({ name, price });
+      const earmark = currentTarget.parentElement.dataset.earmark;
+      this.addProduct({ name, price, earmark });
    }
 
    handleRemoval({ currentTarget = {} }) {
