@@ -7,8 +7,7 @@
   font-weight: 500; }
 
 .grow {
-  animation: grow .3s ease;
-  will-change: transform; }
+  animation: grow .3s ease; }
 
 @keyframes grow {
   50% {
@@ -111,6 +110,7 @@
   .more.glimpse {
     display: block;
     opacity: 0;
+    will-change: transition;
     animation: glimpse 5.5s .5s linear; }
 
 @keyframes glimpse {

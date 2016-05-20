@@ -39,6 +39,7 @@ $textColor: $white;
    &.glimpse {
       display: block;
       opacity: 0;
+      will-change: transition;
       animation: glimpse 5.5s .5s linear;
    }
 }
