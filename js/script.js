@@ -73,7 +73,8 @@ class App {
 
    handleRemoval({ currentTarget = {} }) {
       const name = currentTarget.innerText;
-      this.removeProduct({ name });
+      const price = +currentTarget.dataset.price;
+      this.removeProduct({ name, price });
    }
 
    addProduct(item) {
@@ -83,9 +84,9 @@ class App {
       this.animate(this.$result, 'grow');
    }
 
-   removeProduct({ name }) {
+   removeProduct({ name, price }) {
+      this.amount -= price;
       const index = this.items.map(item => item.name).indexOf(name);
-      this.amount -= this.items[index].price;
       this.items.splice(index, 1);
       this.render();
    }
