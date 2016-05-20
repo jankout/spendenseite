@@ -28,7 +28,7 @@ class App {
       this.$items = this.$('.result .items');
       this.$donateButton = this.$('.donate-button');
 
-      this.$amount.on('keyup', this.handleAmountChange.bind(this));
+      this.$amount.on('keyup change', this.handleAmountChange.bind(this));
       this.$marker.on('click', 'button', this.handleItemAddition.bind(this));
 
       this.startIntro();
