@@ -26,7 +26,7 @@ class App {
       this.$amount = this.$('.result .amount');
       this.$resultMore = this.$('.result .more');
       this.$items = this.$('.result .items');
-      this.$donateButton = this.$('.donate-button');
+      this.$donateButton = this.$('.donation-button');
 
       this.$amount.on('keyup change', this.handleAmountChange.bind(this));
       this.$marker.on('click', '.item', this.handleAddition.bind(this));
@@ -62,8 +62,7 @@ class App {
 
    handleRemoval({ currentTarget = {} }) {
       const name = currentTarget.innerText;
-      const price = +currentTarget.dataset.price;
-      this.removeProduct({ name, price });
+      this.removeProduct({ name });
    }
 
    addProduct(item) {
@@ -73,9 +72,9 @@ class App {
       this.animate(this.$result, 'grow');
    }
 
-   removeProduct({ name, price }) {
-      this.amount -= price;
+   removeProduct({ name }) {
       const index = this.items.map(item => item.name).indexOf(name);
+      this.amount -= this.items[index].price;
       this.items.splice(index, 1);
       this.render();
    }
@@ -144,7 +143,7 @@ class App {
 
    runSVGAnimation(id = '', callback = this.$.noop) {
       const settings = window.config.vivusSettings;
-      this.$(`#${id}`).css('opacity', 1);
+      settings.onReady = () => this.$(`#${id}`).css('opacity', 1);
       this.vivus = new Vivus(id, settings, callback);
    }
 

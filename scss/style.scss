@@ -95,7 +95,7 @@ h1 { font-size: 28px; }
    }
 }
 
-.spenden-form {
+.donation-form {
    margin-bottom: 5rem;
 
    & > * { padding: 0 $space; }
@@ -140,7 +140,7 @@ h1 { font-size: 28px; }
    content: attr(data-price) "\00a0€";
 }
 
-.donate-button {
+.donation-button {
    transition: 1s all;
 
    &[disabled] {

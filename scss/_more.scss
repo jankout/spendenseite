@@ -1,6 +1,6 @@
 $moreWidth: 23rem;
 $distanceTop: 0;
-$bgColor: rgba($red, .9);
+$bgColor: $red;
 $textColor: $white;
 
 .more {
@@ -15,10 +15,12 @@ $textColor: $white;
    .content {
       overflow: auto;
       max-height: 30rem;
-      padding: $space;
+      border: $space solid $bgColor;
       background: $bgColor;
       cursor: auto;
       color: $textColor;
+
+      p { margin: 0 0 ($space / 2); }
 
       // Arrow
       &:after {
