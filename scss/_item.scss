@@ -3,14 +3,38 @@ $textColor: $red;
 
 .item {
    position: relative;
-   display: block;
+   display: table;
    width: 100%;
    margin-top: $space / 2;
-   padding: 0.2rem $space / 2;
-   background-color: $bgColor;
+   padding: .2rem $space / 2;
+   cursor: pointer;
+   text-align: left;
    color: $textColor;
    border: none;
-   text-align: left;
+   background-color: $bgColor;
+   align-items: center;
+
+   &:before,
+   &:after,
+   & > * {
+      display: table-cell;
+      vertical-align: middle;
+   }
+
+   & > * {
+      width: 100%;
+   }
+
+   .name {
+      word-break: break-all;
+      word-break: break-word;
+   }
+
+   [data-price]:after,
+   &[data-price]:after,
+   .price {
+      text-align: right;
+   }
 
    &:hover {
       @extend %bold;

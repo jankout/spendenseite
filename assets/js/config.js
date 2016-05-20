@@ -11,76 +11,76 @@ window.config = {
    marker: [{
       left: '60%',
       top: '64.5%',
-      content: '<button class="item" type="button" data-price="2800">Motor (Austausch)</button>\
-                <button class="item" type="button" data-price="1500">Getriebe (Austausch)</button>\
-                <button class="item" type="button" data-price="450">Nockenwelle</button>\
-                <button class="item" type="button" data-price="300">Ansaugkrümmer</button>\
-                <button class="item" type="button" data-price="500">Ölwanne </button>\
-                <button class="item" type="button" data-price="39">Ölwannendichtung</button>\
-                <button class="item" type="button" data-price="1100">Einspritzpumpe</button>\
-                <button class="item" type="button" data-price="450">Hydraulikpumpe</button>\
-                <button class="item" type="button" data-price="350">Hydaulikpumpenantrieb</button>\
-                <button class="item" type="button" data-price="29">Kupplungsnehmerzylinder</button>\
-                <button class="item" type="button" data-price="250">Kupplungsscheibe</button>\
-                <button class="item" type="button" data-price="250">Kupplungsdruckplatte</button>\
-                <button class="item" type="button" data-price="700">Lenkgetriebe</button>\
-                <button class="item" type="button" data-price="590">Lenkschubstange</button>\
-                <button class="item" type="button" data-price="220">Spurstange</button>\
-                <button class="item" type="button" data-price="15">Ölfilter</button>\
-                <button class="item" type="button" data-price="110">Luftfilter</button>\
-                <button class="item" type="button" data-price="39">Kraftstoffilter</button>',
+      content: '<div class="item" data-price="2800"><span class="name">Motor (Austausch)</span></div>\
+                <div class="item" data-price="1500"><span class="name">Getriebe (Austausch)</span></div>\
+                <div class="item" data-price="450"><span class="name">Nockenwelle</span></div>\
+                <div class="item" data-price="300"><span class="name">Ansaugkrümmer</span></div>\
+                <div class="item" data-price="500"><span class="name">Ölwanne </span></div>\
+                <div class="item" data-price="39"><span class="name">Ölwannendichtung</span></div>\
+                <div class="item" data-price="1100"><span class="name">Einspritzpumpe</span></div>\
+                <div class="item" data-price="450"><span class="name">Hydraulikpumpe</span></div>\
+                <div class="item" data-price="350"><span class="name">Hydaulikpumpenantrieb</span></div>\
+                <div class="item" data-price="29"><span class="name">Kupplungsnehmerzylinder</span></div>\
+                <div class="item" data-price="250"><span class="name">Kupplungsscheibe</span></div>\
+                <div class="item" data-price="250"><span class="name">Kupplungsdruckplatte</span></div>\
+                <div class="item" data-price="700"><span class="name">Lenkgetriebe</span></div>\
+                <div class="item" data-price="590"><span class="name">Lenkschubstange</span></div>\
+                <div class="item" data-price="220"><span class="name">Spurstange</span></div>\
+                <div class="item" data-price="15"><span class="name">Ölfilter</span></div>\
+                <div class="item" data-price="110"><span class="name">Luftfilter</span></div>\
+                <div class="item" data-price="39"><span class="name">Kraftstoffilter</span></div>',
    }, {
       left: '72.6%',
       top: '69.7%',
-      content: '<button class="item" type="button" data-price="390">Auspuffkrümmer</button>\
-                <button class="item" type="button" data-price="90">Schalldämpfer</button>\
-                <button class="item" type="button" data-price="140">Batterie</button>\
-                <button class="item" type="button" data-price="290">Anlasser</button>\
-                <button class="item" type="button" data-price="220">Lichtmaschine</button>\
-                <button class="item" type="button" data-price="30">Lichtmaschinenregler</button>',
+      content: '<div class="item" data-price="390"><span class="name">Auspuffkrümmer</span></div>\
+                <div class="item" data-price="90"><span class="name">Schalldämpfer</span></div>\
+                <div class="item" data-price="140"><span class="name">Batterie</span></div>\
+                <div class="item" data-price="290"><span class="name">Anlasser</span></div>\
+                <div class="item" data-price="220"><span class="name">Lichtmaschine</span></div>\
+                <div class="item" data-price="30"><span class="name">Lichtmaschinenregler</span></div>',
    }, {
       left: '11.1%',
       top: '66.7%',
-      content: '<button class="item" type="button" data-price="950">Achse vorn</button>\
-                <button class="item" type="button" data-price="750">Tragring für Allrad Vorderachse</button>\
-                <button class="item" type="button" data-price="450">Achse hinten</button>\
-                <button class="item" type="button" data-price="350">Räder</button>\
-                <button class="item" type="button" data-price="55">Radbremszylinder</button>\
-                <button class="item" type="button" data-price="240">Bremstrommel</button>\
-                <button class="item" type="button" data-price="500">Bremskraftverstärker</button>\
-                <button class="item" type="button" data-price="65">Druckrelais Bremsventil</button>\
-                <button class="item" type="button" data-price="110">Bremsbeläge </button>\
-                <button class="item" type="button" data-price="300">Bremsleitungen Stahlflex (Satz)</button>\
-                <button class="item" type="button" data-price="190">Anhängerbremsventil</button>',
+      content: '<div class="item" data-price="950"><span class="name">Achse vorn</span></div>\
+                <div class="item" data-price="750"><span class="name">Tragring für Allrad Vorderachse</span></div>\
+                <div class="item" data-price="450"><span class="name">Achse hinten</span></div>\
+                <div class="item" data-price="350"><span class="name">Räder</span></div>\
+                <div class="item" data-price="55"><span class="name">Radbremszylinder</span></div>\
+                <div class="item" data-price="240"><span class="name">Bremstrommel</span></div>\
+                <div class="item" data-price="500"><span class="name">Bremskraftverstärker</span></div>\
+                <div class="item" data-price="65"><span class="name">Druckrelais Bremsventil</span></div>\
+                <div class="item" data-price="110"><span class="name">Bremsbeläge </span></div>\
+                <div class="item" data-price="300"><span class="name">Bremsleitungen Stahlflex (Satz)</span></div>\
+                <div class="item" data-price="190"><span class="name">Anhängerbremsventil</span></div>',
    }, {
       left: '14%',
       top: '46%',
-      content: '<button class="item" type="button" data-price="200">Tür </button>\
-                <button class="item" type="button" data-price="62">Türdichtungen</button>\
-                <button class="item" type="button" data-price="47">Türgriff mit Schließzylinder</button>\
-                <button class="item" type="button" data-price="30">Türgriff ohne Schließzylinder</button>\
-                <button class="item" type="button" data-price="135">Fensterheber</button>\
-                <button class="item" type="button" data-price="20">Fensterkurbel</button>\
-                <button class="item" type="button" data-price="25">Ausstellmechanik Drehfenster</button>\
-                <button class="item" type="button" data-price="69">Sicherheitsgurt</button>\
-                <button class="item" type="button" data-price="150">Scheibenwischermotor</button>\
-                <button class="item" type="button" data-price="25">Scheibenwischergestänge</button>\
-                <button class="item" type="button" data-price="12">Scheibenwischerarm</button>\
-                <button class="item" type="button" data-price="30">Scheibenwischerblatt</button>\
-                <button class="item" type="button" data-price="25">Sonnenblende</button>\
-                <button class="item" type="button" data-price="24">Spiegel</button>',
+      content: '<div class="item" data-price="200"><span class="name">Tür </span></div>\
+                <div class="item" data-price="62"><span class="name">Türdichtungen</span></div>\
+                <div class="item" data-price="47"><span class="name">Türgriff mit Schließzylinder</span></div>\
+                <div class="item" data-price="30"><span class="name">Türgriff ohne Schließzylinder</span></div>\
+                <div class="item" data-price="135"><span class="name">Fensterheber</span></div>\
+                <div class="item" data-price="20"><span class="name">Fensterkurbel</span></div>\
+                <div class="item" data-price="25"><span class="name">Ausstellmechanik Drehfenster</span></div>\
+                <div class="item" data-price="69"><span class="name">Sicherheitsgurt</span></div>\
+                <div class="item" data-price="150"><span class="name">Scheibenwischermotor</span></div>\
+                <div class="item" data-price="25"><span class="name">Scheibenwischergestänge</span></div>\
+                <div class="item" data-price="12"><span class="name">Scheibenwischerarm</span></div>\
+                <div class="item" data-price="30"><span class="name">Scheibenwischerblatt</span></div>\
+                <div class="item" data-price="25"><span class="name">Sonnenblende</span></div>\
+                <div class="item" data-price="24"><span class="name">Spiegel</span></div>',
    }, {
       left: '8%',
       top: '57%',
-      content: '<button class="item" type="button" data-price="110">Scheinwerfer </button>\
-                <button class="item" type="button" data-price="50">Nebelscheinwerfer</button>\
-                <button class="item" type="button" data-price="35">Rücklicht</button>\
-                <button class="item" type="button" data-price="15">Blinker vorn</button>\
-                <button class="item" type="button" data-price="15">Blinker hinten</button>\
-                <button class="item" type="button" data-price="10">Kennzeichenbeleuchtung</button>\
-                <button class="item" type="button" data-price="80">Signalhorn</button>\
-                <button class="item" type="button" data-price="250">Stoßstange vorn</button>\
-                <button class="item" type="button" data-price="120">Stoßstange hinten</button>',
+      content: '<div class="item" data-price="110"><span class="name">Scheinwerfer </span></div>\
+                <div class="item" data-price="50"><span class="name">Nebelscheinwerfer</span></div>\
+                <div class="item" data-price="35"><span class="name">Rücklicht</span></div>\
+                <div class="item" data-price="15"><span class="name">Blinker vorn</span></div>\
+                <div class="item" data-price="15"><span class="name">Blinker hinten</span></div>\
+                <div class="item" data-price="10"><span class="name">Kennzeichenbeleuchtung</span></div>\
+                <div class="item" data-price="80"><span class="name">Signalhorn</span></div>\
+                <div class="item" data-price="250"><span class="name">Stoßstange vorn</span></div>\
+                <div class="item" data-price="120"><span class="name">Stoßstange hinten</span></div>',
    }],
 
 };
