@@ -9,12 +9,12 @@ $textColor: $white;
    top: 1rem;
    left: 0;
    display: none;
-   overflow: auto;
    width: $moreWidth;
-   max-height: 30rem;
    padding-top: $markerSize + $distanceTop;
 
    .content {
+      overflow: auto;
+      max-height: 30rem;
       padding: $space;
       background: $bgColor;
       cursor: auto;
