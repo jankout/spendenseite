@@ -70,7 +70,6 @@
   position: relative;
   display: table;
   width: 100%;
-  margin-top: 1rem;
   padding: 0.2rem 1rem;
   cursor: pointer;
   text-align: left;
@@ -78,6 +77,8 @@
   border: none;
   background-color: white;
   align-items: center; }
+  .item:not(:last-child) {
+    margin-bottom: 1rem; }
   .item:before, .item:after, .item > * {
     display: table-cell;
     vertical-align: middle; }
@@ -104,10 +105,12 @@
   .more .content {
     overflow: auto;
     max-height: 30rem;
-    padding: 2rem;
-    background: rgba(226, 33, 41, 0.9);
+    border: 2rem solid #e22129;
+    background: #e22129;
     cursor: auto;
     color: white; }
+    .more .content p {
+      margin: 0 0 1rem; }
     .more .content:after {
       content: " ";
       position: absolute;
@@ -117,7 +120,7 @@
       width: 0;
       transform: translateY(0);
       border: solid transparent;
-      border-bottom-color: rgba(226, 33, 41, 0.9);
+      border-bottom-color: #e22129;
       border-width: 1rem;
       margin-left: -1rem; }
   .more.glimpse {
@@ -209,9 +212,9 @@ h1 {
   .row > :not(:first-child) {
     margin-left: 2rem; }
 
-.spenden-form {
+.donation-form {
   margin-bottom: 5rem; }
-  .spenden-form > * {
+  .donation-form > * {
     padding: 0 2rem; }
 
 .result {
@@ -241,9 +244,9 @@ h1 {
 [data-price]:after {
   content: attr(data-price) " €"; }
 
-.donate-button {
+.donation-button {
   transition: 1s all; }
-  .donate-button[disabled] {
+  .donation-button[disabled] {
     opacity: 0.3;
     color: #e22129;
     border: 1px dotted #333;

@@ -11,7 +11,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 /* global Vivus */
 
 var markerTemplate = function markerTemplate(data) {
-   return '\n   <div class="pin" id="' + (data.id || '') + '" style="left: ' + data.left + '; top: ' + data.top + ';">\n      <div class="circle"></div>\n      <div class="glow"></div>\n      <div class="more">\n         <div class="content">\n            ' + data.content + '\n         </div>\n      </div>\n   </div>\n';
+   return '\n   <div class="pin" id="' + (data.id || '') + '" style="left: ' + data.left + '; top: ' + data.top + ';">\n      <div class="circle"></div>\n      <div class="glow"></div>\n      <div class="more">\n         <div class="content" data-earmark="' + data.earmark + '">\n            ' + data.content + '\n         </div>\n      </div>\n   </div>\n';
 };
 
 var App = function () {
@@ -29,11 +29,14 @@ var App = function () {
       this.$amount = this.$('.result .amount');
       this.$resultMore = this.$('.result .more');
       this.$items = this.$('.result .items');
-      this.$donateButton = this.$('.donate-button');
+      this.$donateButton = this.$('.donation-button');
+      this.$earmark = this.$('.donation-earmark');
+      this.$form = this.$('.donation-form');
 
       this.$amount.on('keyup change', this.handleAmountChange.bind(this));
       this.$marker.on('click', '.item', this.handleAddition.bind(this));
       this.$items.on('click', '.item', this.handleRemoval.bind(this));
+      this.$form.on('submit', this.beforeSubmit.bind(this));
 
       this.startIntro();
    }
@@ -41,20 +44,30 @@ var App = function () {
    _createClass(App, [{
       key: 'startIntro',
       value: function startIntro() {
-         var _this = this;
-
-         this.runSVGAnimation('svg-lkw', function () {
-            var htmlItems = _this.marker.map(markerTemplate);
-            _this.$marker.html(htmlItems.join(''));
-            var firstPin = _this.$('.pin .more').first();
-            _this.animate(firstPin, 'glimpse');
-         });
+         // this.runSVGAnimation('svg-lkw', () => {
+         var htmlItems = this.marker.map(markerTemplate);
+         this.$marker.html(htmlItems.join(''));
+         var firstPin = this.$('.pin .more').first();
+         // this.animate(firstPin, 'glimpse');
+         // });
       }
    }, {
       key: 'render',
       value: function render() {
          this.$amount.val(this.amount);
          this.renderItems();
+      }
+   }, {
+      key: 'beforeSubmit',
+      value: function beforeSubmit(event) {
+         var counts = {};
+         this.items.forEach(function (item) {
+            counts[item.earmark] = (counts[item.earmark] || 0) + item.price;
+         });
+         var earmark = Object.keys(counts).sort(function (a, b) {
+            return counts[b] - counts[a];
+         })[0];
+         this.$earmark.val(earmark || '');
       }
    }, {
       key: 'handleAmountChange',
@@ -70,7 +83,8 @@ var App = function () {
 
          var name = currentTarget.innerText;
          var price = +currentTarget.dataset.price;
-         this.addProduct({ name: name, price: price });
+         var earmark = currentTarget.parentElement.dataset.earmark;
+         this.addProduct({ name: name, price: price, earmark: earmark });
       }
    }, {
       key: 'handleRemoval',
@@ -79,8 +93,7 @@ var App = function () {
          var currentTarget = _ref2$currentTarget === undefined ? {} : _ref2$currentTarget;
 
          var name = currentTarget.innerText;
-         var price = +currentTarget.dataset.price;
-         this.removeProduct({ name: name, price: price });
+         this.removeProduct({ name: name });
       }
    }, {
       key: 'addProduct',
@@ -96,19 +109,18 @@ var App = function () {
       key: 'removeProduct',
       value: function removeProduct(_ref3) {
          var name = _ref3.name;
-         var price = _ref3.price;
 
-         this.amount -= price;
          var index = this.items.map(function (item) {
             return item.name;
          }).indexOf(name);
+         this.amount -= this.items[index].price;
          this.items.splice(index, 1);
          this.render();
       }
    }, {
       key: 'renderItems',
       value: function renderItems() {
-         var _this2 = this;
+         var _this = this;
 
          var items = [].concat(_toConsumableArray(this.items));
          var hasItems = !(this.amount > 0 || items.length);
@@ -147,7 +159,7 @@ var App = function () {
                   targetValue -= item.price;
                   return fullyOff(item); // fully off
                }).join('');
-               _this2.$items.html(html);
+               _this.$items.html(html);
                return {
                   v: void 0
                };
@@ -190,11 +202,15 @@ var App = function () {
    }, {
       key: 'runSVGAnimation',
       value: function runSVGAnimation() {
+         var _this2 = this;
+
          var id = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
          var callback = arguments.length <= 1 || arguments[1] === undefined ? this.$.noop : arguments[1];
 
          var settings = window.config.vivusSettings;
-         this.$('#' + id).css('opacity', 1);
+         settings.onReady = function () {
+            return _this2.$('#' + id).css('opacity', 1);
+         };
          this.vivus = new Vivus(id, settings, callback);
       }
    }]);
