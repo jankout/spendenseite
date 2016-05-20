@@ -95,7 +95,8 @@ var App = function () {
          var currentTarget = _ref2$currentTarget === undefined ? {} : _ref2$currentTarget;
 
          var name = currentTarget.innerText;
-         this.removeProduct({ name: name });
+         var price = +currentTarget.dataset.price;
+         this.removeProduct({ name: name, price: price });
       }
    }, {
       key: 'addProduct',
@@ -111,11 +112,12 @@ var App = function () {
       key: 'removeProduct',
       value: function removeProduct(_ref3) {
          var name = _ref3.name;
+         var price = _ref3.price;
 
+         this.amount -= price;
          var index = this.items.map(function (item) {
             return item.name;
          }).indexOf(name);
-         this.amount -= this.items[index].price;
          this.items.splice(index, 1);
          this.render();
       }
