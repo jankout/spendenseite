@@ -13,9 +13,15 @@
 
 // Styles ---------------------------------------
 
-.lead { font-size: 18px; }
-
+.lead { font-size: 16px; }
+.large { font-size: 24px; }
 .bold { @extend %bold; }
+
+.highlight {
+   @extend .bold;
+   @extend .large;
+   color: $red;
+}
 
 .strike {
    position: relative;
@@ -33,11 +39,7 @@
    }
 }
 
-.highlight {
-   @extend .bold;
-   font-size: 24px;
-   color: $red;
-}
+
 
 .invert.invert { // specificity fight
    color: $white;
@@ -63,12 +65,17 @@
    padding: $space / 2;
    border: 1px dotted $black;
 
+   &.full { width: calc(75% + 4rem); }
    &.slim { padding: 0 1rem; }
 }
 
 // Site Styles ----------------------------------
 
 #main .inside { overflow: visible; } // gegen das main stylesheet
+
+#spendenseite { margin-bottom: 32rem; }
+
+h1 { font-size: 28px; }
 
 .lkw {
    position: relative;
@@ -86,6 +93,10 @@
    & > :not(:first-child) {
       margin-left: $space;
    }
+}
+
+.spenden-form {
+   margin-bottom: 5rem;
 }
 
 .result {
@@ -131,5 +142,30 @@
       opacity: 0.3;
       color: $red;
       background-color: $white;
+   }
+}
+
+.info-buttons a { color: $black; }
+
+.info-block {
+   position: relative;
+
+   // Arrow
+   &:after {
+      content: " ";
+      position: absolute;
+      top: -2rem;
+      left: 50%;
+      height: 0;
+      width: 0;
+      border: solid transparent;
+      border-bottom-color: $black;
+      border-width: $markerSize / 2;
+      margin-left: -$markerSize / 2;
+   }
+
+   iframe {
+      width: 100%;
+      height: 32rem;
    }
 }

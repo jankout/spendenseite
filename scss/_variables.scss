@@ -22,6 +22,7 @@ $markerSize: 2rem;
 
 .grow {
    animation: grow .3s ease;
+   will-change: transform;
 }
 
 @keyframes grow {

@@ -132,7 +132,7 @@ class App {
 
    runSVGAnimation(id = '', callback = this.$.noop) {
       const settings = window.config.vivusSettings;
-      settings.onReady = () => this.$(`#${id}`).css('opacity', 1);
+      this.$(`#${id}`).css('opacity', 1);
       this.vivus = new Vivus(id, settings, callback);
    }
 

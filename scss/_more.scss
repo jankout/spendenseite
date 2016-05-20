@@ -8,6 +8,7 @@ $textColor: $white;
    display: none;
    top: 1rem;
    left: 0;
+   z-index: 10;
    width: $moreWidth;
    padding-top: $markerSize + $distanceTop;
 
