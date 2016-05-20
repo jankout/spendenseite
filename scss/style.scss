@@ -42,8 +42,9 @@
 
 
 .invert.invert { // specificity fight
-   color: $white;
+   border: 0;
    background-color: $red;
+   color: $white;
 }
 
 .hidden { display: none; }
