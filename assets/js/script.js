@@ -44,12 +44,14 @@ var App = function () {
    _createClass(App, [{
       key: 'startIntro',
       value: function startIntro() {
-         // this.runSVGAnimation('svg-lkw', () => {
-         var htmlItems = this.marker.map(markerTemplate);
-         this.$marker.html(htmlItems.join(''));
-         var firstPin = this.$('.pin .more').first();
-         // this.animate(firstPin, 'glimpse');
-         // });
+         var _this = this;
+
+         this.runSVGAnimation('svg-lkw', function () {
+            var htmlItems = _this.marker.map(markerTemplate);
+            _this.$marker.html(htmlItems.join(''));
+            var firstPin = _this.$('.pin .more').first();
+            _this.animate(firstPin, 'glimpse');
+         });
       }
    }, {
       key: 'render',
@@ -120,7 +122,7 @@ var App = function () {
    }, {
       key: 'renderItems',
       value: function renderItems() {
-         var _this = this;
+         var _this2 = this;
 
          var items = [].concat(_toConsumableArray(this.items));
          var hasItems = !(this.amount > 0 || items.length);
@@ -159,7 +161,7 @@ var App = function () {
                   targetValue -= item.price;
                   return fullyOff(item); // fully off
                }).join('');
-               _this.$items.html(html);
+               _this2.$items.html(html);
                return {
                   v: void 0
                };
@@ -202,14 +204,14 @@ var App = function () {
    }, {
       key: 'runSVGAnimation',
       value: function runSVGAnimation() {
-         var _this2 = this;
+         var _this3 = this;
 
          var id = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
          var callback = arguments.length <= 1 || arguments[1] === undefined ? this.$.noop : arguments[1];
 
          var settings = window.config.vivusSettings;
          settings.onReady = function () {
-            return _this2.$('#' + id).css('opacity', 1);
+            return _this3.$('#' + id).css('opacity', 1);
          };
          this.vivus = new Vivus(id, settings, callback);
       }

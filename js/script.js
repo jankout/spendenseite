@@ -39,12 +39,12 @@ class App {
    }
 
    startIntro() {
-      // this.runSVGAnimation('svg-lkw', () => {
+      this.runSVGAnimation('svg-lkw', () => {
          const htmlItems = this.marker.map(markerTemplate);
          this.$marker.html(htmlItems.join(''));
          const firstPin = this.$('.pin .more').first();
-         // this.animate(firstPin, 'glimpse');
-      // });
+         this.animate(firstPin, 'glimpse');
+      });
    }
 
    render() {
