@@ -140,6 +140,7 @@ h1 { font-size: 28px; }
    &[disabled] {
       opacity: 0.3;
       color: $red;
+      border: 1px dotted $black;
       background-color: $white;
    }
 }

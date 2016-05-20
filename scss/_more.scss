@@ -1,15 +1,17 @@
-$moreWidth: 20rem;
+$moreWidth: 25rem;
 $distanceTop: 0;
 $bgColor: rgba($red, .9);
 $textColor: $white;
 
 .more {
    position: absolute;
-   display: none;
+   z-index: 10; // für Spendenkorb
    top: 1rem;
    left: 0;
-   z-index: 10; // für Spendenkorb
+   display: none;
+   overflow: auto;
    width: $moreWidth;
+   max-height: 30rem;
    padding-top: $markerSize + $distanceTop;
 
    .content {
