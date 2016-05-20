@@ -87,11 +87,11 @@
   top: 1rem;
   left: 0;
   display: none;
-  overflow: auto;
   width: 25rem;
-  max-height: 30rem;
   padding-top: 2rem; }
   .more .content {
+    overflow: auto;
+    max-height: 30rem;
     padding: 2rem;
     background: rgba(226, 33, 41, 0.9);
     cursor: auto;
@@ -184,7 +184,8 @@ h1 {
 
 .lkw {
   position: relative;
-  z-index: 10; }
+  z-index: 10;
+  margin-bottom: 4rem; }
 
 #svg-lkw {
   width: 100%; }
