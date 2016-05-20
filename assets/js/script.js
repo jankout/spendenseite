@@ -44,13 +44,9 @@ var App = function () {
 
          this.runSVGAnimation('svg-lkw', function () {
             var htmlItems = _this.marker.map(markerTemplate);
-            _this.$marker.html(htmlItems[0]);
-
+            _this.$marker.html(htmlItems.join(''));
             var firstPin = _this.$('.pin .more').first();
-            var callback = function callback() {
-               return _this.$marker.html(htmlItems.join(''));
-            };
-            _this.animate(firstPin, 'glimpse', callback);
+            _this.animate(firstPin, 'glimpse');
          });
       }
    }, {
@@ -170,15 +166,11 @@ var App = function () {
    }, {
       key: 'runSVGAnimation',
       value: function runSVGAnimation() {
-         var _this3 = this;
-
          var id = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
          var callback = arguments.length <= 1 || arguments[1] === undefined ? this.$.noop : arguments[1];
 
          var settings = window.config.vivusSettings;
-         settings.onReady = function () {
-            return _this3.$('#' + id).css('opacity', 1);
-         };
+         this.$('#' + id).css('opacity', 1);
          this.vivus = new Vivus(id, settings, callback);
       }
    }]);
