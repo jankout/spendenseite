@@ -32,7 +32,8 @@ var App = function () {
       this.$donateButton = this.$('.donate-button');
 
       this.$amount.on('keyup change', this.handleAmountChange.bind(this));
-      this.$marker.on('click', 'button', this.handleItemAddition.bind(this));
+      this.$marker.on('click', '.item', this.handleAddition.bind(this));
+      this.$items.on('click', '.item', this.handleRemoval.bind(this));
 
       this.startIntro();
    }
@@ -62,14 +63,24 @@ var App = function () {
          this.renderItems();
       }
    }, {
-      key: 'handleItemAddition',
-      value: function handleItemAddition(_ref) {
-         var _ref$target = _ref.target;
-         var target = _ref$target === undefined ? {} : _ref$target;
+      key: 'handleAddition',
+      value: function handleAddition(_ref) {
+         var _ref$currentTarget = _ref.currentTarget;
+         var currentTarget = _ref$currentTarget === undefined ? {} : _ref$currentTarget;
 
-         var name = target.innerText;
-         var price = +target.dataset.price;
+         var name = currentTarget.innerText;
+         var price = +currentTarget.dataset.price;
          this.addProduct({ name: name, price: price });
+      }
+   }, {
+      key: 'handleRemoval',
+      value: function handleRemoval(_ref2) {
+         var _ref2$currentTarget = _ref2.currentTarget;
+         var currentTarget = _ref2$currentTarget === undefined ? {} : _ref2$currentTarget;
+
+         var name = currentTarget.innerText;
+         var price = +currentTarget.dataset.price;
+         this.removeProduct({ name: name, price: price });
       }
    }, {
       key: 'addProduct',
@@ -82,6 +93,19 @@ var App = function () {
          this.animate(this.$result, 'grow');
       }
    }, {
+      key: 'removeProduct',
+      value: function removeProduct(_ref3) {
+         var name = _ref3.name;
+         var price = _ref3.price;
+
+         this.amount -= price;
+         var index = this.items.map(function (item) {
+            return item.name;
+         }).indexOf(name);
+         this.items.splice(index, 1);
+         this.render();
+      }
+   }, {
       key: 'renderItems',
       value: function renderItems() {
          var _this2 = this;
@@ -91,7 +115,7 @@ var App = function () {
          var targetValue = this.calculateAmount();
          var actualValue = this.$amount.val();
          var itemTemplate = function itemTemplate(item) {
-            return '<div class="item" data-price="' + item.price + '">' + item.name + '</div>';
+            return '<div class="item" data-price="' + item.price + '"><span class="name">' + item.name + '</span></div>';
          };
 
          this.$resultMore.toggleClass('hidden', hasItems);
@@ -100,10 +124,10 @@ var App = function () {
          if (items.length && actualValue < targetValue) {
             var _ret = function () {
                var partlyOff = function partlyOff(item) {
-                  return '<div class="item">' + item.name + '\n                                         <div class="pull-right"> ' + item.newPrice + ' €\n                                            <span class="strike">' + item.price + ' €</span>\n                                         </div>\n                                      </div>';
+                  return '<div class="item"><span class="name">' + item.name + '</span>\n                                       <div class="price">' + item.newPrice + '&nbsp;€ <span class="strike">' + item.price + '&nbsp;€</span></div>\n                                    </div>';
                };
                var fullyOff = function fullyOff(item) {
-                  return '<div class="item strike"><span data-price="' + item.price + '">' + item.name + '</span></div>';
+                  return '<div class="item strike"><span class="name">' + item.name + '</span><span data-price="' + item.price + '"></span></div>';
                };
 
                var html = items.map(function (item) {

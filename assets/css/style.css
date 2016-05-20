@@ -68,14 +68,27 @@
 
 .item {
   position: relative;
-  display: block;
+  display: table;
   width: 100%;
   margin-top: 1rem;
   padding: 0.2rem 1rem;
-  background-color: white;
+  cursor: pointer;
+  text-align: left;
   color: #e22129;
   border: none;
-  text-align: left; }
+  background-color: white;
+  align-items: center; }
+  .item:before, .item:after, .item > * {
+    display: table-cell;
+    vertical-align: middle; }
+  .item > * {
+    width: 100%; }
+  .item .name {
+    word-break: break-all;
+    word-break: break-word; }
+  .item [data-price]:after, .item[data-price]:after,
+  .item .price {
+    text-align: right; }
   .item:before {
     content: "+";
     padding-right: 1rem; }
@@ -86,7 +99,7 @@
   top: 1rem;
   left: 0;
   display: none;
-  width: 25rem;
+  width: 23rem;
   padding-top: 2rem; }
   .more .content {
     overflow: auto;
@@ -136,7 +149,7 @@
   display: inline-block;
   opacity: 0.7; }
   .strike:after {
-    content: '';
+    content: "";
     position: absolute;
     top: calc(50% - 1px);
     left: -3px;
@@ -220,12 +233,13 @@ h1 {
     display: block; }
   .result .more {
     transform: translateX(-50%);
-    top: 3rem;
+    top: 2rem;
     left: 50%; }
+  .result .item:before {
+    content: "-"; }
 
 [data-price]:after {
-  content: attr(data-price) " €";
-  float: right; }
+  content: attr(data-price) " €"; }
 
 .donate-button {
   transition: 1s all; }
