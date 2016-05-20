@@ -97,8 +97,8 @@ window.config = {
                 <div class="item" data-price="250"><span class="name">Stoßstange vorn</span></div>\
                 <div class="item" data-price="120"><span class="name">Stoßstange hinten</span></div>',
    }, {
-      left: '0%',
-      top: '0%',
+      left: '50%',
+      top: '20%',
       earmark: '147185',
       content: '<div class="item" data-price="200"><span class="name">Ausbau Doppelkabine</span></div>',
    }, {
