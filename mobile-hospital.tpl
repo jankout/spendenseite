@@ -7,7 +7,6 @@
 
 <div class="lkw">
    <object id="svg-lkw" type="image/svg+xml" data="http://cadus.github.io/spendenseite/assets/img/lkw-small.svg" style="opacity: 0;"></object>
-   <!-- TODO: Inline -->
    <div class="marker"></div>
 </div>
 
