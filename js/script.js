@@ -26,6 +26,8 @@ class App {
       this.$amount = this.$('.result .amount');
       this.$resultMore = this.$('.result .more');
       this.$items = this.$('.result .items');
+      this.$infoBlock = this.$('.info-block');
+      this.$infoButtons = this.$('.info-buttons');
       this.$donateButton = this.$('.donation-button');
       this.$earmark = this.$('.donation-earmark');
       this.$form = this.$('.donation-form');
@@ -34,7 +36,9 @@ class App {
       this.$marker.on('click', '.item', this.handleAddition.bind(this));
       this.$items.on('click', '.item', this.handleRemoval.bind(this));
       this.$form.on('submit', this.beforeSubmit.bind(this));
+      this.$infoButtons.on('click', '[data-view]', (event) => this.changeInfobox(event.currentTarget.dataset.view));
 
+      this.changeInfobox(0);
       this.startIntro();
    }
 
@@ -57,6 +61,14 @@ class App {
       this.items.forEach((item) => { counts[item.earmark] = (counts[item.earmark] || 0) + item.price; });
       const earmark = Object.keys(counts).sort((a, b) => counts[b] - counts[a])[0];
       this.$earmark.val(earmark || '');
+   }
+
+   changeInfobox(view) {
+      console.log('view', view);
+      this.$infoBlock
+         .attr('data-view', view)
+         .find('.view').hide()
+         .eq(+view).show();
    }
 
    handleAmountChange() {
