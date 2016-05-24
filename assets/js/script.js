@@ -82,8 +82,7 @@ var App = function () {
    }, {
       key: 'changeInfobox',
       value: function changeInfobox(view) {
-         console.log('view', view);
-         this.$infoBlock.attr('data-view', view).find('.view').hide().eq(+view).show();
+         this.$infoBlock.attr('data-view', view).find('.view').hide().eq(view).show();
       }
    }, {
       key: 'handleAmountChange',
