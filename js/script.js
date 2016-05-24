@@ -64,11 +64,10 @@ class App {
    }
 
    changeInfobox(view) {
-      console.log('view', view);
       this.$infoBlock
          .attr('data-view', view)
          .find('.view').hide()
-         .eq(+view).show();
+         .eq(view).show();
    }
 
    handleAmountChange() {
