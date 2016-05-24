@@ -63,8 +63,6 @@
 
 // Site Styles ----------------------------------
 
-#main .inside { overflow: visible; } // gegen das main stylesheet
-
 .info-block {
    margin-bottom: 32rem;
    padding: $space;
@@ -93,10 +91,16 @@ h1 { font-size: 28px; }
 }
 
 .donation-form {
-   margin-bottom: 5rem;
+   flex-wrap: wrap;
+   margin-bottom: 4rem;
 
-   & > * { padding: 0 $space; }
+   .result,
+   .donation-button {
+      padding: 0 $space;
+      margin: 0 1rem 1rem;
+   }
 }
+
 
 .result {
    position: relative;
@@ -107,7 +111,7 @@ h1 { font-size: 28px; }
 
    .amount,
    .amount:focus {
-      width: 10rem;
+      width: 12rem;
       margin: 0;
       padding: 0;
       border: 0;
