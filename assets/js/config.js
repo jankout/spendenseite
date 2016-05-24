@@ -12,7 +12,7 @@ window.config = {
       left: '60%',
       top: '64.5%',
       earmark: '147172',
-      content: '<p>Ein oder mehrere Bauteil auswahlen:</p>\
+      content: '<p>Ein oder mehrere Bauteile auswahlen:</p>\
                 <div class="item" data-price="2800"><span class="name">Motor (Austausch)</span></div>\
                 <div class="item" data-price="1500"><span class="name">Getriebe (Austausch)</span></div>\
                 <div class="item" data-price="450"><span class="name">Nockenwelle</span></div>\
@@ -29,7 +29,7 @@ window.config = {
       left: '60%',
       top: '64.5%',
       earmark: '147180',
-      content: '<p>Ein oder mehrere Bauteil auswahlen:</p>\
+      content: '<p>Ein oder mehrere Bauteile auswahlen:</p>\
                 <div class="item" data-price="700"><span class="name">Lenkgetriebe</span></div>\
                 <div class="item" data-price="590"><span class="name">Lenkschubstange</span></div>\
                 <div class="item" data-price="220"><span class="name">Spurstange</span></div>\
@@ -42,7 +42,7 @@ window.config = {
       left: '72.6%',
       top: '69.7%',
       earmark: '147181',
-      content: '<p>Ein oder mehrere Bauteil auswahlen:</p>\
+      content: '<p>Ein oder mehrere Bauteile auswahlen:</p>\
                 <div class="item" data-price="140"><span class="name">Batterie</span></div>\
                 <div class="item" data-price="290"><span class="name">Anlasser</span></div>\
                 <div class="item" data-price="220"><span class="name">Lichtmaschine</span></div>\
@@ -51,7 +51,7 @@ window.config = {
       left: '11.1%',
       top: '66.7%',
       earmark: '147182',
-      content: '<p>Ein oder mehrere Bauteil auswahlen:</p>\
+      content: '<p>Ein oder mehrere Bauteile auswahlen:</p>\
                 <div class="item" data-price="950"><span class="name">Achse vorn</span></div>\
                 <div class="item" data-price="750"><span class="name">Tragring für Allrad Vorderachse</span></div>\
                 <div class="item" data-price="450"><span class="name">Achse hinten</span></div>\
@@ -67,7 +67,7 @@ window.config = {
       left: '14%',
       top: '46%',
       earmark: '147183',
-      content: '<p>Ein oder mehrere Bauteil auswahlen:</p>\
+      content: '<p>Ein oder mehrere Bauteile auswahlen:</p>\
                 <div class="item" data-price="200"><span class="name">Tür</span></div>\
                 <div class="item" data-price="62"><span class="name">Türdichtungen</span></div>\
                 <div class="item" data-price="47"><span class="name">Türgriff mit Schließzylinder</span></div>\
@@ -86,7 +86,7 @@ window.config = {
       left: '8%',
       top: '57%',
       earmark: '147184',
-      content: '<p>Ein oder mehrere Bauteil auswahlen:</p>\
+      content: '<p>Ein oder mehrere Bauteile auswahlen:</p>\
                 <div class="item" data-price="110"><span class="name">Scheinwerfer</span></div>\
                 <div class="item" data-price="50"><span class="name">Nebelscheinwerfer</span></div>\
                 <div class="item" data-price="35"><span class="name">Rücklicht</span></div>\
@@ -100,13 +100,13 @@ window.config = {
       left: '50%',
       top: '20%',
       earmark: '147185',
-      content: '<p>Ein oder mehrere Bauteil auswahlen:</p>\
+      content: '<p>Ein oder mehrere Bauteile auswahlen:</p>\
                 <div class="item" data-price="200"><span class="name">Ausbau Doppelkabine</span></div>',
    }, {
       left: '8%',
       top: '57%',
       earmark: '147186',
-      content: '<p>Ein oder mehrere Bauteil auswahlen:</p>\
+      content: '<p>Ein oder mehrere Bauteile auswahlen:</p>\
                 <div class="item" data-price="200"><span class="name">Kofferumbau</span></div>',
    }],
 
