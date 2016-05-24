@@ -237,6 +237,10 @@
   .brick.slim {
     padding: 0 1rem; }
 
+#main > .inside,
+#main > .inside > .first > .ce_text {
+  overflow: visible; }
+
 .info-block {
   margin-bottom: 32rem;
   padding: 2rem; }
