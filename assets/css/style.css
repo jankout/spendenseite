@@ -237,6 +237,12 @@
   .brick.slim {
     padding: 0 1rem; }
 
+.navbar-collapse {
+  margin-top: 42px; }
+
+.top-nav-collapse .navbar-collapse {
+  margin-top: 23px; }
+
 #main > .inside,
 #main > .inside > .first > .ce_text {
   overflow: visible; }
@@ -251,7 +257,7 @@ h1 {
 .lkw {
   position: relative;
   z-index: 10;
-  margin-bottom: 4rem; }
+  margin: 3rem 0 4rem; }
 
 #svg-lkw {
   width: 100%; }

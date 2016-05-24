@@ -42,7 +42,8 @@ var App = function () {
       this.$items.on('click', '.item', this.handleRemoval.bind(this));
       this.$form.on('submit', this.beforeSubmit.bind(this));
       this.$infoButtons.on('click', '[data-view]', function (event) {
-         return _this.changeInfobox(event.currentTarget.dataset.view);
+         event.preventDefault();
+         _this.changeInfobox(event.currentTarget.dataset.view);
       });
 
       this.changeInfobox(0);
