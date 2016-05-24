@@ -55,12 +55,23 @@ var App = function () {
       value: function startIntro() {
          var _this2 = this;
 
-         this.runSVGAnimation('svg-lkw', function () {
+         var id = 'svg-lkw';
+         var onReady = function onReady() {
+            _this2.$('#' + id).css('opacity', 1);
+         };
+         var callback = function callback() {
             var htmlItems = _this2.marker.map(markerTemplate);
             _this2.$marker.html(htmlItems.join(''));
             var firstPin = _this2.$('.pin .more').first();
             _this2.animate(firstPin, 'glimpse');
-         });
+         };
+
+         if (/^((?!chrome).)*safari/i.test(window.navigator.userAgent)) {
+            onReady();
+            callback();
+         } else {
+            this.runSVGAnimation(id, onReady, callback);
+         }
       }
    }, {
       key: 'render',
@@ -220,15 +231,12 @@ var App = function () {
    }, {
       key: 'runSVGAnimation',
       value: function runSVGAnimation() {
-         var _this4 = this;
-
          var id = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
-         var callback = arguments.length <= 1 || arguments[1] === undefined ? this.$.noop : arguments[1];
+         var onReady = arguments.length <= 1 || arguments[1] === undefined ? this.$.noop : arguments[1];
+         var callback = arguments.length <= 2 || arguments[2] === undefined ? this.$.noop : arguments[2];
 
          var settings = window.config.vivusSettings;
-         settings.onReady = function () {
-            return _this4.$('#' + id).css('opacity', 1);
-         };
+         settings.onReady = onReady;
          this.vivus = new Vivus(id, settings, callback);
       }
    }]);

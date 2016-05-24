@@ -46,12 +46,22 @@ class App {
    }
 
    startIntro() {
-      this.runSVGAnimation('svg-lkw', () => {
+      const id = 'svg-lkw';
+      const onReady = () => { this.$(`#${id}`).css('opacity', 1); };
+      const callback = () => {
          const htmlItems = this.marker.map(markerTemplate);
          this.$marker.html(htmlItems.join(''));
          const firstPin = this.$('.pin .more').first();
          this.animate(firstPin, 'glimpse');
-      });
+      };
+
+      if (/^((?!chrome).)*safari/i.test(window.navigator.userAgent)) {
+         onReady();
+         callback();
+      }
+      else {
+         this.runSVGAnimation(id, onReady, callback);
+      }
    }
 
    render() {
@@ -167,9 +177,9 @@ class App {
       });
    }
 
-   runSVGAnimation(id = '', callback = this.$.noop) {
+   runSVGAnimation(id = '', onReady = this.$.noop, callback = this.$.noop) {
       const settings = window.config.vivusSettings;
-      settings.onReady = () => this.$(`#${id}`).css('opacity', 1);
+      settings.onReady = onReady;
       this.vivus = new Vivus(id, settings, callback);
    }
 
