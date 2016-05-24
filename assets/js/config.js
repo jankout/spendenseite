@@ -9,8 +9,8 @@ window.config = {
    },
 
    marker: [{
-      left: '83.2%',
-      top: '19%',
+      left: '48.4%',
+      top: '31%',
       earmark: '147181',
       content: '<p>Ein oder mehrere Bauteile auswahlen:</p>\
                 <div class="item" data-price="140"><span class="name">Batterie</span></div>\
@@ -103,8 +103,8 @@ window.config = {
       content: '<p>Ein oder mehrere Bauteile auswahlen:</p>\
                 <div class="item" data-price="200"><span class="name">Ausbau Doppelkabine</span></div>',
    }, {
-      left: '48.4%',
-      top: '31%',
+      left: '83.2%',
+      top: '19%',
       earmark: '147186',
       content: '<p>Ein oder mehrere Bauteile auswahlen:</p>\
                 <div class="item" data-price="200"><span class="name">Kofferumbau</span></div>',
