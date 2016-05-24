@@ -50,17 +50,10 @@
 .pull-right { float: right; }
 .pull-left { float: left; }
 
-.center {
-   text-align: center;
-
-   & > * {
-      display: inline-block;
-      margin-bottom: $space;
-   }
-}
+.center { text-align: center; }
 
 .brick {
-   width: 25%;
+   flex: 1;
    padding: $space / 2;
    border: 1px dotted $black;
 
@@ -72,7 +65,10 @@
 
 #main .inside { overflow: visible; } // gegen das main stylesheet
 
-.info-block { margin-bottom: 32rem; }
+.info-block {
+   margin-bottom: 32rem;
+   padding: $space;
+}
 
 h1 { font-size: 28px; }
 
@@ -86,9 +82,10 @@ h1 { font-size: 28px; }
    width: 100%;
 }
 
-.row {
+.donation-row {
    display: flex;
    justify-content: center;
+   margin-bottom: 3rem;
 
    & > :not(:first-child) {
       margin-left: $space;
@@ -151,8 +148,15 @@ h1 { font-size: 28px; }
    }
 }
 
+.infos {
+   width: 50rem;
+   max-width: 100%;
+   margin: 0 auto;
+}
+
 .info-buttons {
    display: flex;
+   text-align
 
    .brick { flex: 1; }
    a { color: $black; }
@@ -161,11 +165,21 @@ h1 { font-size: 28px; }
 .info-block {
    position: relative;
 
-   .view { display: none; }
+   .view {
+      display: none;
+
+      h3 {
+         margin-top: 0;
+         margin-bottom: 1.5rem;
+      }
+
+      h4 { margin-top: $space; }
+   }
+
 
    img {
-      float: right;
-      margin: 1rem;
+      width: 100%;
+      margin-bottom: 1rem;
    }
 
    .arrow {
@@ -184,4 +198,10 @@ h1 { font-size: 28px; }
    &[data-view="0"] .arrow { left: calc(16.5% - .5rem); }
    &[data-view="1"] .arrow { left: 50%; }
    &[data-view="2"] .arrow { left: calc(83.5% + .5rem); }
+}
+
+.image-strip {
+   float: left;
+   margin-right: $space;
+   width: 23rem;
 }
