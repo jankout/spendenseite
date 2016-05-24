@@ -9,6 +9,15 @@ window.config = {
    },
 
    marker: [{
+      left: '83.2%',
+      top: '19%',
+      earmark: '147181',
+      content: '<p>Ein oder mehrere Bauteile auswahlen:</p>\
+                <div class="item" data-price="140"><span class="name">Batterie</span></div>\
+                <div class="item" data-price="290"><span class="name">Anlasser</span></div>\
+                <div class="item" data-price="220"><span class="name">Lichtmaschine</span></div>\
+                <div class="item" data-price="30"><span class="name">Lichtmaschinenregler</span></div>',
+   }, {
       left: '60%',
       top: '64.5%',
       earmark: '147172',
@@ -39,17 +48,8 @@ window.config = {
                 <div class="item" data-price="390"><span class="name">Auspuffkrümmer</span></div>\
                 <div class="item" data-price="90"><span class="name">Schalldämpfer</span></div>',
    }, {
-      left: '72.6%',
-      top: '69.7%',
-      earmark: '147181',
-      content: '<p>Ein oder mehrere Bauteile auswahlen:</p>\
-                <div class="item" data-price="140"><span class="name">Batterie</span></div>\
-                <div class="item" data-price="290"><span class="name">Anlasser</span></div>\
-                <div class="item" data-price="220"><span class="name">Lichtmaschine</span></div>\
-                <div class="item" data-price="30"><span class="name">Lichtmaschinenregler</span></div>',
-   }, {
-      left: '11.1%',
-      top: '66.7%',
+      left: '8%',
+      top: '57%',
       earmark: '147182',
       content: '<p>Ein oder mehrere Bauteile auswahlen:</p>\
                 <div class="item" data-price="950"><span class="name">Achse vorn</span></div>\
@@ -64,8 +64,8 @@ window.config = {
                 <div class="item" data-price="300"><span class="name">Bremsleitungen Stahlflex (Satz)</span></div>\
                 <div class="item" data-price="190"><span class="name">Anhängerbremsventil</span></div>',
    }, {
-      left: '14%',
-      top: '46%',
+      left: '26.6%',
+      top: '44%',
       earmark: '147183',
       content: '<p>Ein oder mehrere Bauteile auswahlen:</p>\
                 <div class="item" data-price="200"><span class="name">Tür</span></div>\
@@ -97,14 +97,14 @@ window.config = {
                 <div class="item" data-price="250"><span class="name">Stoßstange vorn</span></div>\
                 <div class="item" data-price="120"><span class="name">Stoßstange hinten</span></div>',
    }, {
-      left: '50%',
-      top: '20%',
+      left: '18.3%',
+      top: '24%',
       earmark: '147185',
       content: '<p>Ein oder mehrere Bauteile auswahlen:</p>\
                 <div class="item" data-price="200"><span class="name">Ausbau Doppelkabine</span></div>',
    }, {
-      left: '8%',
-      top: '57%',
+      left: '48.4%',
+      top: '31%',
       earmark: '147186',
       content: '<p>Ein oder mehrere Bauteile auswahlen:</p>\
                 <div class="item" data-price="200"><span class="name">Kofferumbau</span></div>',
