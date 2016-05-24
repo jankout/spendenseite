@@ -36,7 +36,10 @@ class App {
       this.$marker.on('click', '.item', this.handleAddition.bind(this));
       this.$items.on('click', '.item', this.handleRemoval.bind(this));
       this.$form.on('submit', this.beforeSubmit.bind(this));
-      this.$infoButtons.on('click', '[data-view]', (event) => this.changeInfobox(event.currentTarget.dataset.view));
+      this.$infoButtons.on('click', '[data-view]', (event) => {
+         event.preventDefault();
+         this.changeInfobox(event.currentTarget.dataset.view);
+      });
 
       this.changeInfobox(0);
       this.startIntro();
