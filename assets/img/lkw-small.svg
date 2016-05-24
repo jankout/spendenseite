@@ -356,10 +356,6 @@
     <ellipse fill="#FFF" cx="1659.284" cy="209.071" rx="1.823" ry="2.725"/>
     <path fill="none" d="M1381.05 212.56h23.997m114.66 0h24.154"/>
   </g>
-  <image overflow="visible" width="2429" height="297" xlink:href="C518F267.jpg" transform="matrix(.2 0 0 .2 645.7 511.5)"/>
-  <image overflow="visible" width="2426" height="1568" xlink:href="C518F265.jpg" transform="matrix(.1 0 0 .1 126.7 -318.5)"/>
-  <image overflow="visible" width="2667" height="765" xlink:href="C518F263.jpg" transform="matrix(.1 0 0 .1 362.2 -264.9)"/>
-  <image overflow="visible" width="1920" height="1080" xlink:href="C518F26D.jpg" transform="matrix(.3 0 0 .3 -833.1 -28.8)"/>
   <g stroke="#000">
     <path fill="#FFF" d="M626.267 222.116l-2.125-5.75s-1.875-2.25-2.25.5l1.875 6.125 2.5-.87z"/>
     <path fill="#FFF" d="M612.642 222.99l1.875-1.624h9.25l2.25-2 15.375 7.25-29.75.125zm-1.625 21.5l-56.375-14.124-.25 1.5 57.5 14.625zm-67.625-32.25h12.375v10.25h-12.375zm-16.875 0h12.375v10.25h-12.375z"/>
@@ -581,7 +577,6 @@
     <ellipse cx="1151.393" cy="-157.649" rx=".562" ry="1.062"/>
     <path d="M1155.227-154.546h208.166"/>
   </g>
-  <image overflow="visible" width="2034" height="1168" xlink:href="C518F26F.jpg" transform="matrix(.3 0 0 .3 348 -465)"/>
   <path fill="#FFF" stroke="#000" d="M600.808 149.574l-1.75-5.5v-90.25H828.56v90.25l-1.75 5.5zM809.03 185.49h.94v1.834h-.94zm-6.624 0h.938v1.834h-.938zm-85.46 0h.94v1.834h-.94zm-6.624 0h.938v1.834h-.938z"/>
   <path fill="#FFF" stroke="#000" d="M827.937 165.158H600.27v17.334h18.032v1.332h1.5v3.333h4.5v-3.333h1.5v-1.332h84.582v1.332h1.5v3.333h4.5v-3.333h1.5v-1.332h84.584v1.332h1.5v3.333h4.5v-3.333h1.5v-1.332h17.97z"/>
   <path fill="#FFF" stroke="#000" d="M624.865 185.49h.938v1.834h-.938zm-6.625 0h.938v1.834h-.938z"/>
