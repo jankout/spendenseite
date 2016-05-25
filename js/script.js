@@ -53,6 +53,7 @@ class App {
          this.$marker.html(htmlItems.join(''));
          const firstPin = this.$('.pin .more').first();
          this.animate(firstPin, 'glimpse');
+         this.adjustMarkerContentPositions();
       };
 
       if (/^((?!chrome).)*safari/i.test(window.navigator.userAgent)) {
@@ -192,6 +193,20 @@ class App {
       const settings = window.config.vivusSettings;
       settings.onReady = onReady;
       this.vivus = new Vivus(id, settings, callback);
+   }
+
+   adjustMarkerContentPositions() {
+      this.$marker.find('.pin .content').each((index, element) => {
+         element.parentElement.style.display = 'block';
+         const bounds = element.getBoundingClientRect();
+         element.parentElement.style.display = '';
+         if (bounds.left < 0) {
+            element.style.left = `${Math.abs(bounds.left)}px`;
+         }
+         else if (window.innerWidth - bounds.right < 0) {
+            element.style.right = `${bounds.right - window.innerWidth}px`;
+         }
+      });
    }
 
 }

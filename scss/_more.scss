@@ -12,7 +12,23 @@ $textColor: $white;
    width: $moreWidth;
    padding-top: $markerSize + $distanceTop;
 
+   // Arrow
+   &:after {
+      content: " ";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      height: 0;
+      width: 0;
+      transform: translateY($distanceTop);
+      border: solid transparent;
+      border-bottom-color: $bgColor;
+      border-width: $markerSize / 2;
+      margin-left: -$markerSize / 2;
+   }
+
    .content {
+      position: relative;
       overflow: auto;
       max-height: 30rem;
       border: $space solid $bgColor;
@@ -21,21 +37,6 @@ $textColor: $white;
       color: $textColor;
 
       p { margin: 0 0 ($space / 2); }
-
-      // Arrow
-      &:after {
-         content: " ";
-         position: absolute;
-         top: 0;
-         left: 50%;
-         height: 0;
-         width: 0;
-         transform: translateY($distanceTop);
-         border: solid transparent;
-         border-bottom-color: $bgColor;
-         border-width: $markerSize / 2;
-         margin-left: -$markerSize / 2;
-      }
    }
 
    &.glimpse {
