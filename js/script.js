@@ -56,7 +56,7 @@ class App {
          this.adjustMarkerContentPositions();
       };
 
-      if (/^((?!chrome).)*safari/i.test(window.navigator.userAgent)) {
+      if (window.innerWidth < 768 || /^((?!chrome).)*safari/i.test(window.navigator.userAgent)) {
          onReady();
          callback();
       }
