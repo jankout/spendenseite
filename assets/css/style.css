@@ -387,6 +387,7 @@ h1 {
 .image-strip {
   float: left;
   margin-right: 2rem;
-  width: 23rem; }
+  width: 23rem;
+  max-width: 100%; }
 
 /*# sourceMappingURL=style.css.map */
