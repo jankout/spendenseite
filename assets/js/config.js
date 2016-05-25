@@ -9,7 +9,7 @@ window.config = {
    },
 
    marker: [{
-      left: '48.4%',
+      left: '48.1%',
       top: '31%',
       earmark: '147181',
       content: '<p>Ein oder mehrere Bauteile auswahlen:</p>\
