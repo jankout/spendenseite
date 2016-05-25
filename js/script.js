@@ -69,9 +69,11 @@ class App {
       this.renderItems();
    }
 
-   beforeSubmit(event) {
+   beforeSubmit() {
       const counts = {};
-      this.items.forEach((item) => { counts[item.earmark] = (counts[item.earmark] || 0) + item.price; });
+      this.items.forEach((item) => {
+         counts[item.earmark] = (counts[item.earmark] || 0) + item.price;
+      });
       const earmark = Object.keys(counts).sort((a, b) => counts[b] - counts[a])[0];
       this.$earmark.val(earmark || '');
    }
@@ -79,8 +81,10 @@ class App {
    changeInfobox(view) {
       this.$infoBlock
          .attr('data-view', view)
-         .find('.view').hide()
-         .eq(view).show();
+         .find('.view')
+         .hide()
+         .eq(view)
+         .show();
    }
 
    handleAmountChange() {
@@ -116,23 +120,30 @@ class App {
    }
 
    renderItems() {
-      let items = [...this.items];
-      let hasItems = !(this.amount > 0 || items.length);
+      const items = [...this.items];
+      const hasItems = !(this.amount > 0 || items.length);
+      const actualValue = this.$amount.val();
+      const itemTemplate = (item) => `<div class="item" data-price="${item.price}">
+                                         <span class="name">${item.name}</span>
+                                      </div>`;
       let targetValue = this.calculateAmount();
-      let actualValue = this.$amount.val();
-      let itemTemplate = (item) => `<div class="item" data-price="${item.price}"><span class="name">${item.name}</span></div>`;
 
       this.$resultMore.toggleClass('hidden', hasItems);
       this.$donateButton.attr('disabled', hasItems);
 
       if (items.length && actualValue < targetValue) {
-         let partlyOff = (item) => `<div class="item"><span class="name">${item.name}</span>
-                                       <div class="price">${item.newPrice}&nbsp;€ <span class="strike">${item.price}&nbsp;€</span></div>
+         const partlyOff = (item) => `<div class="item"><span class="name">${item.name}</span>
+                                       <div class="price">${item.newPrice}&nbsp;€
+                                          <span class="strike">${item.price}&nbsp;€</span>
+                                       </div>
                                     </div>`;
-         let fullyOff = (item) => `<div class="item strike"><span class="name">${item.name}</span><span data-price="${item.price}"></span></div>`;
+         const fullyOff = (item) => `<div class="item strike">
+                                        <span class="name">${item.name}</span>
+                                        <span data-price="${item.price}"></span>
+                                     </div>`;
 
-         let html = items.map((item) => {
-            let difference = targetValue - actualValue;
+         const html = items.map((item) => {
+            const difference = targetValue - actualValue;
 
             if (!difference) {
                return itemTemplate(item); // normal
@@ -158,8 +169,8 @@ class App {
          });
       }
 
-      let itemsHtml = items.map(itemTemplate).join('');
-      let html = items.length ? itemsHtml : '';
+      const itemsHtml = items.map(itemTemplate).join('');
+      const html = items.length ? itemsHtml : '';
       this.$items.html(html);
    }
 
