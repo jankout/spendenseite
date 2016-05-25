@@ -135,7 +135,22 @@
   display: none;
   width: 23rem;
   padding-top: 2rem; }
+  .more:after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 0;
+    width: 0;
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0);
+    border: solid transparent;
+    border-bottom-color: #e22129;
+    border-width: 1rem;
+    margin-left: -1rem; }
   .more .content {
+    position: relative;
     overflow: auto;
     max-height: 30rem;
     border: 2rem solid #e22129;
@@ -144,20 +159,6 @@
     color: white; }
     .more .content p {
       margin: 0 0 1rem; }
-    .more .content:after {
-      content: " ";
-      position: absolute;
-      top: 0;
-      left: 50%;
-      height: 0;
-      width: 0;
-      -webkit-transform: translateY(0);
-          -ms-transform: translateY(0);
-              transform: translateY(0);
-      border: solid transparent;
-      border-bottom-color: #e22129;
-      border-width: 1rem;
-      margin-left: -1rem; }
   .more.glimpse {
     display: block;
     opacity: 0;

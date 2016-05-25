@@ -64,6 +64,7 @@ var App = function () {
             _this2.$marker.html(htmlItems.join(''));
             var firstPin = _this2.$('.pin .more').first();
             _this2.animate(firstPin, 'glimpse');
+            _this2.adjustMarkerContentPositions();
          };
 
          if (/^((?!chrome).)*safari/i.test(window.navigator.userAgent)) {
@@ -81,7 +82,7 @@ var App = function () {
       }
    }, {
       key: 'beforeSubmit',
-      value: function beforeSubmit(event) {
+      value: function beforeSubmit() {
          var counts = {};
          this.items.forEach(function (item) {
             counts[item.earmark] = (counts[item.earmark] || 0) + item.price;
@@ -153,11 +154,11 @@ var App = function () {
 
          var items = [].concat(_toConsumableArray(this.items));
          var hasItems = !(this.amount > 0 || items.length);
-         var targetValue = this.calculateAmount();
          var actualValue = this.$amount.val();
          var itemTemplate = function itemTemplate(item) {
-            return '<div class="item" data-price="' + item.price + '"><span class="name">' + item.name + '</span></div>';
+            return '<div class="item" data-price="' + item.price + '">\n                                         <span class="name">' + item.name + '</span>\n                                      </div>';
          };
+         var targetValue = this.calculateAmount();
 
          this.$resultMore.toggleClass('hidden', hasItems);
          this.$donateButton.attr('disabled', hasItems);
@@ -165,10 +166,10 @@ var App = function () {
          if (items.length && actualValue < targetValue) {
             var _ret = function () {
                var partlyOff = function partlyOff(item) {
-                  return '<div class="item"><span class="name">' + item.name + '</span>\n                                       <div class="price">' + item.newPrice + '&nbsp;€ <span class="strike">' + item.price + '&nbsp;€</span></div>\n                                    </div>';
+                  return '<div class="item"><span class="name">' + item.name + '</span>\n                                       <div class="price">' + item.newPrice + '&nbsp;€\n                                          <span class="strike">' + item.price + '&nbsp;€</span>\n                                       </div>\n                                    </div>';
                };
                var fullyOff = function fullyOff(item) {
-                  return '<div class="item strike"><span class="name">' + item.name + '</span><span data-price="' + item.price + '"></span></div>';
+                  return '<div class="item strike">\n                                        <span class="name">' + item.name + '</span>\n                                        <span data-price="' + item.price + '"></span>\n                                     </div>';
                };
 
                var html = items.map(function (item) {
@@ -238,6 +239,20 @@ var App = function () {
          var settings = window.config.vivusSettings;
          settings.onReady = onReady;
          this.vivus = new Vivus(id, settings, callback);
+      }
+   }, {
+      key: 'adjustMarkerContentPositions',
+      value: function adjustMarkerContentPositions() {
+         this.$marker.find('.pin .content').each(function (index, element) {
+            element.parentElement.style.display = 'block';
+            var bounds = element.getBoundingClientRect();
+            element.parentElement.style.display = '';
+            if (bounds.left < 0) {
+               element.style.left = Math.abs(bounds.left) + 'px';
+            } else if (window.innerWidth - bounds.right < 0) {
+               element.style.right = bounds.right - window.innerWidth + 'px';
+            }
+         });
       }
    }]);
 
