@@ -126,7 +126,6 @@ h1 { font-size: 28px; }
    position: relative;
    display: flex;
    align-items: center;
-   will-change: transition;
    border: 2px solid $red;
 
    .amount,

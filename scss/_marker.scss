@@ -62,10 +62,10 @@ $duration: 3s;
       left: 0;
       width: $size;
       height: $size;
-      border: ($size / 2) solid $red;
-      box-shadow: 0 0 ($size / 10) $red;
+      background-color: $red;
       opacity: 0;
       animation: pulse $duration infinite ease-out;
+      will-change: transform;
    }
 
    .more {
