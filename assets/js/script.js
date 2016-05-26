@@ -219,7 +219,7 @@ var App = function () {
                   if (difference < item.price) {
                      // partly off
                      targetValue -= difference;
-                     item.newPrice = item.price - difference; // eslint-disable-line no-param-reassign
+                     item.newPrice = item.price - difference;
                      return partlyOff(item);
                   }
 
@@ -298,5 +298,5 @@ var App = function () {
 
 $(function () {
    return window.app = new App();
-}); // eslint-disable-line no-new, no-return-assign
+}); // eslint-disable-line no-return-assign
 //# sourceMappingURL=script.js.map

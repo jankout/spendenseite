@@ -184,7 +184,7 @@ class App {
 
             if (difference < item.price) { // partly off
                targetValue -= difference;
-               item.newPrice = item.price - difference; // eslint-disable-line no-param-reassign
+               item.newPrice = item.price - difference;
                return partlyOff(item);
             }
 
@@ -243,4 +243,4 @@ class App {
 
 }
 
-$(() => window.app = new App()); // eslint-disable-line no-new, no-return-assign
+$(() => window.app = new App()); // eslint-disable-line no-return-assign
