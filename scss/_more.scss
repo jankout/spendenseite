@@ -1,5 +1,4 @@
 $moreWidth: 23rem;
-$distanceTop: 0;
 $bgColor: $red;
 $textColor: $white;
 
@@ -10,7 +9,14 @@ $textColor: $white;
    left: 0;
    display: none;
    width: $moreWidth;
-   padding-top: $markerSize + $distanceTop;
+   padding-top: $markerSize;
+
+   .touch-device & {
+      top: $markerSize + 1rem;
+      padding-top: 0;
+
+      &:after { top: -$markerSize; }
+   }
 
    // Arrow
    &:after {
@@ -20,7 +26,6 @@ $textColor: $white;
       left: 50%;
       height: 0;
       width: 0;
-      transform: translateY($distanceTop);
       border: solid transparent;
       border-bottom-color: $bgColor;
       border-width: $markerSize / 2;
@@ -37,6 +42,22 @@ $textColor: $white;
       color: $textColor;
 
       p { margin: 0 0 ($space / 2); }
+   }
+
+   &.above {
+      transform: translateX(-50%);
+      left: 50%;
+      top: auto;
+      bottom: $markerSize;
+      padding-top: 0;
+      padding-bottom: $markerSize;
+
+      &:after {
+         top: auto;
+         bottom: 0;
+         border-bottom-color: transparent;
+         border-top-color: $red;
+      }
    }
 
    &.glimpse {

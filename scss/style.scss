@@ -61,6 +61,7 @@
    &.slim { padding: 0 1rem; }
 }
 
+
 // Site Styles ----------------------------------
 
 @media (min-width: 1200px) {
@@ -121,7 +122,6 @@ h1 { font-size: 28px; }
    }
 }
 
-
 .result {
    position: relative;
    display: flex;
@@ -144,12 +144,6 @@ h1 { font-size: 28px; }
    &:hover .more,
    &.active .more {
       display: block;
-   }
-
-   .more {
-      transform: translateX(-50%);
-      top: 2rem;
-      left: 50%;
    }
 
    .item:before {

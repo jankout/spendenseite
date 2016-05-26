@@ -35,8 +35,13 @@ $duration: 3s;
    z-index: 10;
 
    &:first-child { z-index: 11; } // für das Intro
-   &:hover { z-index: 12; } // um andere Marker zu überlagern
-   &:hover .more { display: block; }
+
+   .touch-device &.active,
+   .mouse-device &:hover {
+      z-index: 12; // um andere Marker zu überlagern
+      .circle { z-index: 13; }
+      .more { display: block; }
+   }
 
    .circle,
    .glow {
@@ -61,15 +66,6 @@ $duration: 3s;
       box-shadow: 0 0 ($size / 10) $red;
       opacity: 0;
       animation: pulse $duration infinite ease-out;
-   }
-
-   &.active {
-      .circle {
-         background-color: $turquoise;
-      }
-      .glow {
-         display: none;
-      }
    }
 
    .more {

@@ -2,8 +2,8 @@
 
 const markerTemplate = (data) => `
    <div class="pin" id="${data.id || ''}" style="left: ${data.left}; top: ${data.top};">
-      <div class="circle"></div>
       <div class="glow"></div>
+      <div class="circle"></div>
       <div class="more">
          <div class="content" data-earmark="${data.earmark}">
             ${data.content}
@@ -32,17 +32,49 @@ class App {
       this.$earmark = this.$('.donation-earmark');
       this.$form = this.$('.donation-form');
 
-      this.$amount.on('keyup change', this.handleAmountChange.bind(this));
+      this.bindEvents();
+      this.changeInfobox(0);
+      this.startIntro();
+   }
+
+   bindEvents() {
       this.$marker.on('click', '.item', this.handleAddition.bind(this));
       this.$items.on('click', '.item', this.handleRemoval.bind(this));
+      this.$amount.on('keyup change', this.handleAmountChange.bind(this));
       this.$form.on('submit', this.beforeSubmit.bind(this));
+
       this.$infoButtons.on('click', '[data-view]', (event) => {
          event.preventDefault();
          this.changeInfobox(event.currentTarget.dataset.view);
       });
 
-      this.changeInfobox(0);
-      this.startIntro();
+      if (document.documentElement.ontouchstart) {
+         $('body').addClass('touch-device');
+         this.applyTouchDeviceLogic();
+      }
+      else {
+         $('body').addClass('mouse-device');
+      }
+   }
+
+   applyTouchDeviceLogic() {
+      const removeActive = () => this.$marker.find('.pin.active').removeClass('active');
+
+      $(window).on('touchstart', removeActive);
+
+      this.$marker.on('touchstart', '.pin', (event) => {
+         event.stopPropagation();
+         const $target = this.$(event.target);
+         const $currentTarget = this.$(event.currentTarget);
+
+         if (!$currentTarget.hasClass('active')) {
+            removeActive();
+         }
+
+         if ($target.hasClass('circle')) {
+            $currentTarget.toggleClass('active');
+         }
+      });
    }
 
    startIntro() {
