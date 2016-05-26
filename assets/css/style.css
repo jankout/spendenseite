@@ -83,11 +83,11 @@
     left: 0;
     width: 2rem;
     height: 2rem;
-    border: 1rem solid #e22129;
-    box-shadow: 0 0 0.2rem #e22129;
+    background-color: #e22129;
     opacity: 0;
     -webkit-animation: pulse 3s infinite ease-out;
-            animation: pulse 3s infinite ease-out; }
+            animation: pulse 3s infinite ease-out;
+    will-change: transform; }
   .pin .more {
     left: 1rem;
     -webkit-transform: translateX(-50%);
@@ -315,7 +315,6 @@ h1 {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  will-change: transition;
   border: 2px solid #e22129; }
   .result .amount,
   .result .amount:focus {
@@ -398,5 +397,4 @@ h1 {
   margin-right: 2rem;
   width: 23rem;
   max-width: 100%; }
-
 /*# sourceMappingURL=style.css.map */
