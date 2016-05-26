@@ -11,13 +11,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 /* global Vivus */
 
 var markerTemplate = function markerTemplate(data) {
-   return '\n   <div class="pin" id="' + (data.id || '') + '" style="left: ' + data.left + '; top: ' + data.top + ';">\n      <div class="circle"></div>\n      <div class="glow"></div>\n      <div class="more">\n         <div class="content" data-earmark="' + data.earmark + '">\n            ' + data.content + '\n         </div>\n      </div>\n   </div>\n';
+   return '\n   <div class="pin" id="' + (data.id || '') + '" style="left: ' + data.left + '; top: ' + data.top + ';">\n      <div class="glow"></div>\n      <div class="circle"></div>\n      <div class="more">\n         <div class="content" data-earmark="' + data.earmark + '">\n            ' + data.content + '\n         </div>\n      </div>\n   </div>\n';
 };
 
 var App = function () {
    function App() {
-      var _this = this;
-
       _classCallCheck(this, App);
 
       this.$ = window.jQuery;
@@ -37,34 +35,73 @@ var App = function () {
       this.$earmark = this.$('.donation-earmark');
       this.$form = this.$('.donation-form');
 
-      this.$amount.on('keyup change', this.handleAmountChange.bind(this));
-      this.$marker.on('click', '.item', this.handleAddition.bind(this));
-      this.$items.on('click', '.item', this.handleRemoval.bind(this));
-      this.$form.on('submit', this.beforeSubmit.bind(this));
-      this.$infoButtons.on('click', '[data-view]', function (event) {
-         event.preventDefault();
-         _this.changeInfobox(event.currentTarget.dataset.view);
-      });
-
+      this.bindEvents();
       this.changeInfobox(0);
       this.startIntro();
    }
 
    _createClass(App, [{
+      key: 'bindEvents',
+      value: function bindEvents() {
+         var _this = this;
+
+         this.$marker.on('click', '.item', this.handleAddition.bind(this));
+         this.$items.on('click', '.item', this.handleRemoval.bind(this));
+         this.$amount.on('keyup change', this.handleAmountChange.bind(this));
+         this.$form.on('submit', this.beforeSubmit.bind(this));
+
+         this.$infoButtons.on('click', '[data-view]', function (event) {
+            event.preventDefault();
+            _this.changeInfobox(event.currentTarget.dataset.view);
+         });
+
+         if (document.documentElement.ontouchstart) {
+            $('body').addClass('touch-device');
+            this.applyTouchDeviceLogic();
+         } else {
+            $('body').addClass('mouse-device');
+         }
+      }
+   }, {
+      key: 'applyTouchDeviceLogic',
+      value: function applyTouchDeviceLogic() {
+         var _this2 = this;
+
+         var removeActive = function removeActive() {
+            return _this2.$marker.find('.pin.active').removeClass('active');
+         };
+
+         $(window).on('touchstart', removeActive);
+
+         this.$marker.on('touchstart', '.pin', function (event) {
+            event.stopPropagation();
+            var $target = _this2.$(event.target);
+            var $currentTarget = _this2.$(event.currentTarget);
+
+            if (!$currentTarget.hasClass('active')) {
+               removeActive();
+            }
+
+            if ($target.hasClass('circle')) {
+               $currentTarget.toggleClass('active');
+            }
+         });
+      }
+   }, {
       key: 'startIntro',
       value: function startIntro() {
-         var _this2 = this;
+         var _this3 = this;
 
          var id = 'svg-lkw';
          var onReady = function onReady() {
-            _this2.$('#' + id).css('opacity', 1);
+            _this3.$('#' + id).css('opacity', 1);
          };
          var callback = function callback() {
-            var htmlItems = _this2.marker.map(markerTemplate);
-            _this2.$marker.html(htmlItems.join(''));
-            var firstPin = _this2.$('.pin .more').first();
-            _this2.animate(firstPin, 'glimpse');
-            _this2.adjustMarkerContentPositions();
+            var htmlItems = _this3.marker.map(markerTemplate);
+            _this3.$marker.html(htmlItems.join(''));
+            var firstPin = _this3.$('.pin .more').first();
+            _this3.animate(firstPin, 'glimpse');
+            _this3.adjustMarkerContentPositions();
          };
 
          if (window.innerWidth < 768 || /^((?!chrome).)*safari/i.test(window.navigator.userAgent)) {
@@ -150,7 +187,7 @@ var App = function () {
    }, {
       key: 'renderItems',
       value: function renderItems() {
-         var _this3 = this;
+         var _this4 = this;
 
          var items = [].concat(_toConsumableArray(this.items));
          var hasItems = !(this.amount > 0 || items.length);
@@ -189,7 +226,7 @@ var App = function () {
                   targetValue -= item.price;
                   return fullyOff(item); // fully off
                }).join('');
-               _this3.$items.html(html);
+               _this4.$items.html(html);
                return {
                   v: void 0
                };

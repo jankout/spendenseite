@@ -62,10 +62,12 @@
   z-index: 10; }
   .pin:first-child {
     z-index: 11; }
-  .pin:hover {
+  .touch-device .pin.active, .mouse-device .pin:hover {
     z-index: 12; }
-  .pin:hover .more {
-    display: block; }
+    .touch-device .pin.active .circle, .mouse-device .pin:hover .circle {
+      z-index: 13; }
+    .touch-device .pin.active .more, .mouse-device .pin:hover .more {
+      display: block; }
   .pin .circle,
   .pin .glow {
     position: absolute;
@@ -86,10 +88,6 @@
     opacity: 0;
     -webkit-animation: pulse 3s infinite ease-out;
             animation: pulse 3s infinite ease-out; }
-  .pin.active .circle {
-    background-color: #21e2da; }
-  .pin.active .glow {
-    display: none; }
   .pin .more {
     left: 1rem;
     -webkit-transform: translateX(-50%);
@@ -135,6 +133,11 @@
   display: none;
   width: 23rem;
   padding-top: 2rem; }
+  .touch-device .more {
+    top: 3rem;
+    padding-top: 0; }
+    .touch-device .more:after {
+      top: -2rem; }
   .more:after {
     content: " ";
     position: absolute;
@@ -142,9 +145,6 @@
     left: 50%;
     height: 0;
     width: 0;
-    -webkit-transform: translateY(0);
-        -ms-transform: translateY(0);
-            transform: translateY(0);
     border: solid transparent;
     border-bottom-color: #e22129;
     border-width: 1rem;
@@ -159,6 +159,20 @@
     color: white; }
     .more .content p {
       margin: 0 0 1rem; }
+  .more.above {
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+    left: 50%;
+    top: auto;
+    bottom: 2rem;
+    padding-top: 0;
+    padding-bottom: 2rem; }
+    .more.above:after {
+      top: auto;
+      bottom: 0;
+      border-bottom-color: transparent;
+      border-top-color: #e22129; }
   .more.glimpse {
     display: block;
     opacity: 0;
@@ -314,12 +328,6 @@ h1 {
     text-align: right; }
   .result .amount:focus ~ .more, .result:hover .more, .result.active .more {
     display: block; }
-  .result .more {
-    -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-            transform: translateX(-50%);
-    top: 2rem;
-    left: 50%; }
   .result .item:before {
     content: "-"; }
 
@@ -390,4 +398,5 @@ h1 {
   margin-right: 2rem;
   width: 23rem;
   max-width: 100%; }
+
 /*# sourceMappingURL=style.css.map */
