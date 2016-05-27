@@ -75,6 +75,10 @@ class App {
             $currentTarget.toggleClass('active');
          }
       });
+
+      // Wird anscheiend nicht mehr geladen, darum manuell
+      const $nav = this.$('.navbar-main-collapse');
+      this.$('.navbar-toggle').on('click', () => $nav.slideToggle());
    }
 
    startIntro() {
