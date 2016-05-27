@@ -44,6 +44,11 @@ $textColor: $white;
       p { margin: 0 0 ($space / 2); }
    }
 
+   .touch-device & .content {
+      overflow-y: scroll; /* has to be scroll, not auto */
+      -webkit-overflow-scrolling: touch;
+   }
+
    &.above {
       transform: translateX(-50%);
       left: 50%;

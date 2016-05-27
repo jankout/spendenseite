@@ -159,6 +159,10 @@
     color: white; }
     .more .content p {
       margin: 0 0 1rem; }
+  .touch-device .more .content {
+    overflow-y: scroll;
+    /* has to be scroll, not auto */
+    -webkit-overflow-scrolling: touch; }
   .more.above {
     -webkit-transform: translateX(-50%);
         -ms-transform: translateX(-50%);
