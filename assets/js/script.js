@@ -55,7 +55,7 @@ var App = function () {
             _this.changeInfobox(event.currentTarget.dataset.view);
          });
 
-         if (document.documentElement.ontouchstart) {
+         if ('ontouchstart' in window) {
             $('body').addClass('touch-device');
             this.applyTouchDeviceLogic();
          } else {
@@ -82,9 +82,15 @@ var App = function () {
                removeActive();
             }
 
-            if ($target.hasClass('circle')) {
+            if ($target.hasClass('circle') || $target.hasClass('glow')) {
                $currentTarget.toggleClass('active');
             }
+         });
+
+         // Wird anscheiend nicht mehr geladen, darum manuell
+         var $nav = this.$('.navbar-main-collapse');
+         this.$('.navbar-toggle').on('click', function () {
+            return $nav.slideToggle();
          });
       }
    }, {

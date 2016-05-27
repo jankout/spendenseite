@@ -252,16 +252,16 @@
   .brick.slim {
     padding: 0 1rem; }
 
-@media (min-width: 1200px) {
-  .navbar-collapse {
-    margin-top: 42px; }
-
-  .top-nav-collapse .navbar-collapse {
-    margin-top: 23px; } }
 @media (max-width: 990px) {
   .logo {
     margin-top: 0.5rem;
     margin-left: 1rem; } }
+.top-nav-collapse .navbar-collapse {
+  margin-top: 23px; }
+
+.normal #main > .inside {
+  margin-top: 0; }
+
 .centered-wrapper,
 #main > .inside,
 #main > .inside > .first > .ce_text {
@@ -397,4 +397,5 @@ h1 {
   margin-right: 2rem;
   width: 23rem;
   max-width: 100%; }
+
 /*# sourceMappingURL=style.css.map */
